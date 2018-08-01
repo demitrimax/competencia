@@ -174,6 +174,7 @@
   $(window).load(initNice);
   $(window).resize(initNice);
 
+
 })(jQuery);
 $(window).load(function() {
   $(".loader").delay(300).fadeOut();
