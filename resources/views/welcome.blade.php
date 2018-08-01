@@ -20,6 +20,8 @@
   <link href="css/animate.css" rel="stylesheet" />
   <link href="css/style.css" rel="stylesheet">
   <link href="color/default.css" rel="stylesheet">
+  <link rel="stylesheet" href="leaflet/leaflet.css" />
+
 
 
 </head>
@@ -102,17 +104,18 @@
               <!-- Collect the nav links, forms, and other content for toggling -->
               <div class="collapse navbar-collapse" id="menu">
                 <ul class="nav navbar-nav navbar-right">
-                  <li class="active"><a href="#intro">Home</a></li>
-                  <li><a href="#about">About Us</a></li>
-                  <li><a href="#service">Services</a></li>
-                  <li><a href="#works">Works</a></li>
-
-                  <li><a href="#contact">Contact</a></li>
+                  <li class="active"><a href="#intro">Principal</a></li>
+                  <li><a href="#about">Tabla de Posiciones</a></li>
+                  <li><a href="#service">Categorias</a></li>
+                  <li><a href="#works">Estándar de Movimiento</a></li>
                   <li class="dropdown nav-toggle">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropwdown<b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu<b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                      <li><a class="external" href="#">Sub menu</a></li>
-                      <li><a class="external" href="#">Sub menu</a></li>
+                      <li><a class="external" href="#">Que es Max Effort Challenge</a></li>
+                      <li><a class="external" href="#">Registrarse</a></li>
+                      <li><a class="external" href="#">Historia</a></li>
+                      <li><a class="external" href="#">Mas Retos</a></li>
+                      <li><a class="external" href="#">Programaciones</a></li>
                     </ul>
                   </li>
                 </ul>
@@ -134,7 +137,7 @@
         <div class="col-lg-8 col-lg-offset-2">
           <div class="wow flipInY" data-wow-offset="0" data-wow-delay="0.4s">
             <div class="section-heading text-center">
-              <h2 class="h-bold">About</h2>
+              <h2 class="h-bold">Que es Max Effort Challenge</h2>
               <div class="divider-header"></div>
               <p>Lorem ipsum dolor sit amet, agam perfecto sensibus usu at duo ut iriure.</p>
             </div>
@@ -152,68 +155,33 @@
           <div class="col-xs-6 col-sm-3 col-md-3">
             <div class="team-wrapper-big wow bounceInUp" data-wow-delay="0.2s">
               <div class="team-wrapper-overlay">
-                <h5>Keyla Cruse</h5>
-                <p>Graeco voluptua sed ea, malorum quaeque cotidieque per eu, quo id possit dissentias.</p>
-                <div class="social-icons">
-                  <ul class="team-social">
-                    <li class="social-facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li class="social-twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li class="social-google"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                  </ul>
-                </div>
+                <h5>Gymnastics</h5>
+                <p>Mejorar el rendimiento en gymnastics trabajando los diferentes movimientos (Pull ups, Muscle ups, Pistols, Handstand Walk, Rope Climb, etc.).</p>
+
               </div>
-              <img src="img/team/1.jpg" alt="" />
+              <img src="img/parallax/primera_1.png" alt="" />
             </div>
           </div>
 
           <div class="col-xs-6 col-sm-3 col-md-3">
             <div class="team-wrapper-big wow bounceInUp" data-wow-delay="0.5s">
               <div class="team-wrapper-overlay">
-                <h5>Tanya Doe</h5>
-                <p>Graeco voluptua sed ea, malorum quaeque cotidieque per eu, quo id possit dissentias.</p>
-                <div class="social-icons">
-                  <ul class="team-social">
-                    <li class="social-facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li class="social-twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li class="social-google"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                  </ul>
-                </div>
+                <h5>Weightlifting</h5>
+                <p>Incremento de fuerza y técnica en levantamientos olímpicos y de powerlifting (Snatch, Clean & Jerk, Squats, Press.)</p>
               </div>
-              <img src="img/team/2.jpg" alt="" />
+              <img src="img/parallax/segunda_2.png" alt="" />
             </div>
           </div>
           <div class="col-xs-6 col-sm-3 col-md-3">
             <div class="team-wrapper-big wow bounceInUp" data-wow-delay="0.8s">
               <div class="team-wrapper-overlay">
-                <h5>Heck Steven</h5>
-                <p>Graeco voluptua sed ea, malorum quaeque cotidieque per eu, quo id possit dissentias.</p>
-                <div class="social-icons">
-                  <ul class="team-social">
-                    <li class="social-facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li class="social-twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li class="social-google"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                  </ul>
-                </div>
+                <h5>Metcon</h5>
+                <p>Mejorar rendimiento cardiovascular con diferentes movimientos funcionales.</p>
               </div>
-              <img src="img/team/3.jpg" alt="" />
+              <img src="img/parallax/tercera_3.png" alt="" />
             </div>
           </div>
-          <div class="col-xs-6 col-sm-3 col-md-3">
-            <div class="team-wrapper-big wow bounceInUp" data-wow-delay="1s">
-              <div class="team-wrapper-overlay">
-                <h5>Adrian Dawn</h5>
-                <p>Graeco voluptua sed ea, malorum quaeque cotidieque per eu, quo id possit dissentias.</p>
-                <div class="social-icons">
-                  <ul class="team-social">
-                    <li class="social-facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li class="social-twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li class="social-google"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                  </ul>
-                </div>
-              </div>
-              <img src="img/team/4.jpg" alt="" />
-            </div>
-          </div>
+
         </div>
       </div>
     </div>
@@ -226,7 +194,7 @@
       <div class="row">
         <div class="col-md-12">
           <div class="text-center">
-            <h2 class="big-heading highlight-dark wow bounceInDown" data-wow-delay="0.2s">We start from pixel perfect pattern</h2>
+            <h2 class="big-heading highlight-dark wow bounceInDown" data-wow-delay="0.2s">Entrenamiento sin limites!</h2>
           </div>
         </div>
       </div>
@@ -436,54 +404,7 @@
 
 
   <!-- Section: contact -->
-  <section id="contact" class="home-section nopadd-bot color-dark bg-white text-center">
-    <div class="container marginbot-50">
-      <div class="row">
-        <div class="col-lg-8 col-lg-offset-2">
-          <div class="wow flipInY" data-wow-offset="0" data-wow-delay="0.4s">
-            <div class="section-heading text-center">
-              <h2 class="h-bold">Contact us</h2>
-              <div class="divider-header"></div>
-              <p>Lorem ipsum dolor sit amet, agam perfecto sensibus usu at duo ut iriure.</p>
-            </div>
-          </div>
-        </div>
-      </div>
 
-    </div>
-
-    <div class="container">
-
-      <div class="row marginbot-80">
-        <div class="col-md-8 col-md-offset-2">
-          <div id="sendmessage">Your message has been sent. Thank you!</div>
-          <div id="errormessage"></div>
-          <form action="" method="post" role="form" class="contactForm">
-            <div class="form-group">
-              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-              <div class="validation"></div>
-            </div>
-            <div class="form-group">
-              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-              <div class="validation"></div>
-            </div>
-            <div class="form-group">
-              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-              <div class="validation"></div>
-            </div>
-            <div class="form-group">
-              <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-              <div class="validation"></div>
-            </div>
-
-            <div class="text-center"><button type="submit" class="btn btn-skin btn-lg btn-block">Send Message</button></div>
-          </form>
-        </div>
-      </div>
-
-
-    </div>
-  </section>
   <!-- /Section: contact -->
 
   <!-- google map -->
@@ -493,12 +414,12 @@
 		</a>
   </div>
   <a id="map-btn2" class="btn btn-skin btn-lg btn-noradius gmap-btn close-map-button btn-hide" href="#map" title="Close google map" data-toggle="tooltip" data-placement="top">
-	795 Folsom Ave, Suite 600 San Francisco, CA 94107
+	Prolongación de Mina #100, Colonia El Recreo Villahermoa, Tabasco
 	</a>
 
   <!-- google map -->
   <section id="map" class="close-map">
-    <div id="google-map"></div>
+    <div id="mapados"></div>
   </section>
   <!-- /google map -->
 
@@ -541,23 +462,34 @@
   <!-- Core JavaScript Files -->
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8HeI8o-c1NppZA-92oYlXakhDPYR7XMY"></script>
   <script src="js/jquery.sticky.js"></script>
   <script src="js/slippry.min.js"></script>
   <script src="js/jquery.flexslider-min.js"></script>
   <script src="js/morphext.min.js"></script>
-  <script src="js/gmap.js"></script>
   <script src="js/jquery.mb.YTPlayer.js"></script>
   <script src="js/jquery.easing.min.js"></script>
   <script src="js/jquery.scrollTo.js"></script>
   <script src="js/jquery.appear.js"></script>
   <script src="js/stellar.js"></script>
+  <script src="js/gmap.js"></script>
   <script src="js/wow.min.js"></script>
   <script src="js/owl.carousel.min.js"></script>
   <script src="js/nivo-lightbox.min.js"></script>
   <script src="js/jquery.nicescroll.min.js"></script>
   <script src="js/custom.js"></script>
-  <script src="contactform/contactform.js"></script>
+  <script src="leaflet/leaflet.js"></script>
+
+  <script>
+  var mapalef = L.map('mapados').setView([51.505, -0.09], 13);
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(mapalef);
+
+      L.marker([51.5, -0.09]).addTo(mapalef)
+          .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+          .openPopup();
+  </script>
 
 </body>
 
