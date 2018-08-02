@@ -73,11 +73,14 @@
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6">
               <div class="form-group">
-                <label for="Clasificacion">Clasificacion</label>
+                <label for="Clasificacion">Tipo de Competencia</label>
                 <select id="clasificacion" name="clasifica">
-                  <option value="Principiante">Principante</option>
-                  <option value="Intermedio">Intermedio</option>
-                  <option value="RX">RX(Avanzado)</option>
+                    <optgroup label="CrossFit">
+                      <option value="Principiante">Principante</option>
+                      <option value="Intermedio">Avanzado</option>
+                      <option value="CrossRX">RX2</option>
+                    </optgroup>
+                    
                 </select>
               </div>
             </div>

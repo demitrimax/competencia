@@ -77,9 +77,24 @@
               <div class="form-group">
                 <label for="Clasificacion">Clasificacion</label>
                 <select id="clasificacion" name="clasifica">
-                  <option value="Principiante">Principante</option>
-                  <option value="Intermedio">Intermedio</option>
-                  <option value="RX">RX(Avanzado)</option>
+                  <optgroup label="CrossFit">
+                    <option value="Principiante">Principante</option>
+                    <option value="Intermedio">Intermedio</option>
+                    <option value="RX">RX(Avanzado)</option>
+                  </optgroup>
+                  <optgroup label="Gymnastic">
+                    <option value="Intermedio">Intermedio</option>
+                    <option value="RX">RX(Avanzado)</option>
+                  </optgroup>
+                  <optgroup label="Weightlifting">
+                    <option value="Intermedio">Intermedio</option>
+                    <option value="RX">RX(Avanzado)</option>
+                  </optgroup>
+                  <optgroup label="Condition">
+                    <option value="RX">RX</option>
+                    <option value="Avanzado">Avanzado</option>
+                    <option value="Principiante">Principiante</option>
+                  </optgroup>
                 </select>
               </div>
             </div>
