@@ -75,26 +75,27 @@
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6">
               <div class="form-group">
-                <label for="Clasificacion">Clasificacion</label>
-                <select id="clasificacion" name="clasifica">
+                <label for="Clasificacion">Tipo de Competencia</label>
+                <select id="clasificacion" name="clasifica" class="selectpicker">
                   <optgroup label="CrossFit">
-                    <option value="Principiante">Principante</option>
-                    <option value="Intermedio">Intermedio</option>
-                    <option value="RX">RX(Avanzado)</option>
+                    <option value="CrossBeginer">Principante</option>
+                    <option value="CrossInter">Intermedio</option>
+                    <option value="CrossRX">RX(Avanzado)</option>
                   </optgroup>
                   <optgroup label="Gymnastic">
-                    <option value="Intermedio">Intermedio</option>
-                    <option value="RX">RX(Avanzado)</option>
+                    <option value="GymInter">Intermedio</option>
+                    <option value="GymRX">RX(Avanzado)</option>
                   </optgroup>
                   <optgroup label="Weightlifting">
-                    <option value="Intermedio">Intermedio</option>
-                    <option value="RX">RX(Avanzado)</option>
+                    <option value="WeighInter">Intermedio</option>
+                    <option value="WeightRX">RX(Avanzado)</option>
                   </optgroup>
                   <optgroup label="Condition">
-                    <option value="RX">RX</option>
-                    <option value="Avanzado">Avanzado</option>
-                    <option value="Principiante">Principiante</option>
+                    <option value="ConditionRX">RX</option>
+                    <option value="ConditionRX">Avanzado</option>
+                    <option value="ConditionBeginer">Principiante</option>
                   </optgroup>
+                    <option value="lossweight">Bajar de Peso</option>
                 </select>
               </div>
             </div>
@@ -109,6 +110,9 @@
                 <div class="form-group">
                   <div class="g-recaptcha" data-sitekey="6LcRMGYUAAAAAAMG4Zutozq-isqtGhcoIntJLzF1"></div>
                 </div>
+            </div>
+            <div>
+              <img src="https://www.paypalobjects.com/webstatic/es_MX/mktg/logos-buttons/redesign/btn_8.png" alt="PayPal" />
             </div>
             <div class="text-center"><button type="submit" class="btn btn-skin btn-lg btn-block">Registrarse</button></div>
           </form>
