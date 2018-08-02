@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('head-script')
+  <script src='https://www.google.com/recaptcha/api.js'></script>
+@endsection
 @section('content')
   <!-- Section: contact -->
   <section id="contact" class="home-section nopadd-bot color-dark bg-white text-center">
@@ -21,51 +23,78 @@
     <div class="container">
 
       <div class="row marginbot-80 centered-form">
-        <div class="col-md-4 col-md-offset-2 col-md-offset-4">
+        <div class="col-lg-8 col-md-offset-2">
           <div id="sendmessage">Gracias por su registro!</div>
           <div id="errormessage"></div>
-          <form action="" method="post" role="form" class="contactForm">
+          <form action="{{ url('/registro')}}" method="post" role="form" class="contactForm">
+            {{ csrf_field() }}
             <div class="col-xs-6 col-sm-6 col-md-6">
               <div class="form-group">
-                <input type="text" name="nombre" class="form-control" id="nombre" placeholder="Nombre" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                <input type="text" name="nombre" class="form-control" id="nombre" placeholder="Nombre" data-rule="minlen:4" data-msg="Please enter at least 4 chars" required />
                 <div class="validation"></div>
               </div>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6">
               <div class="form-group">
-                <input type="text" name="apellidos" class="form-control" id="apellidos" placeholder="Apellidos" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                <input type="text" name="apellidos" class="form-control" id="apellidos" placeholder="Apellidos" data-rule="minlen:4" data-msg="Please enter at least 4 chars" required/>
                 <div class="validation"></div>
               </div>
             </div>
             <div class="form-group">
-              <input type="email" class="form-control" name="email" id="email" placeholder="Correo Electronico" data-rule="email" data-msg="Please enter a valid email" />
+              <input type="email" class="form-control" name="email" id="email" placeholder="Correo Electronico" required/>
               <div class="validation"></div>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6">
               <div class="form-group">
-                <input type="text" name="password" class="form-control" id="password" placeholder="Contraseña" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                <input type="password" name="password" class="form-control" id="password" placeholder="Contraseña" data-rule="minlen:4" data-msg="Please enter at least 4 chars" required/>
                 <div class="validation"></div>
               </div>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6">
               <div class="form-group">
-                <input type="text" name="confpassword" class="form-control" id="confpassword" placeholder="Confirma conatraseña" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                <input type="password" name="confpassword" class="form-control" id="confpassword" placeholder="Confirma contraseña" />
                 <div class="validation"></div>
               </div>
             </div>
-            <div class="form-group">
-              <input type="number" name="edad" class="form-control" id="edad" placeholder="Edad" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-              <div class="validation"></div>
+            <div class="col-xs-6 col-sm-6 col-md-6">
+              <div class="form-group">
+                <input type="number" name="edad" class="form-control" id="edad" placeholder="Edad" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                <div class="validation"></div>
+              </div>
             </div>
-            <div class="form-group">
-              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-              <div class="validation"></div>
-            </div>
-            <div class="form-group">
-              <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-              <div class="validation"></div>
+            <div class="col-xs-6 col-sm-6 col-md-6">
+              <div class="form-group">
+                <input type="date" name="fecnac" class="form-control" id="fecnac" placeholder="Fecha de Nacimiento" />
+                <div class="validation"></div>
+              </div>
             </div>
 
+            <div class="form-group">
+              <input type="text" class="form-control" name="telefono" id="telefono" placeholder="telefono"/>
+              <div class="validation"></div>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6">
+              <div class="form-group">
+                <label for="Clasificacion">Clasificacion</label>
+                <select id="clasificacion" name="clasifica">
+                  <option value="Principiante">Principante</option>
+                  <option value="Intermedio">Intermedio</option>
+                  <option value="RX">RX(Avanzado)</option>
+                </select>
+              </div>
+            </div>
+              <div class="col-xs-6 col-sm-6 col-md-6">
+                <label for="Genero">Genero</label>
+                <div class="form-group">
+                  <input type="radio" name="gender" value="hombre">Hombre<br>
+                  <input type="radio" name="gender" value="mujer">Mujer<br>
+                </div>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="form-group">
+                  <div class="g-recaptcha" data-sitekey="6LcRMGYUAAAAAAMG4Zutozq-isqtGhcoIntJLzF1"></div>
+                </div>
+            </div>
             <div class="text-center"><button type="submit" class="btn btn-skin btn-lg btn-block">Registrarse</button></div>
           </form>
         </div>

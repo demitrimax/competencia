@@ -20,3 +20,4 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/registro', 'registroController@index');
+Route::post('/registro', 'registroController@guardar');
