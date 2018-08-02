@@ -28,6 +28,34 @@
           <div id="errormessage"></div>
           <form action="{{ url('/registro')}}" method="post" role="form" class="contactForm">
             {{ csrf_field() }}
+            <div>
+              <div class="form-group">
+                <label for="tcompetencia">Tipo de Competencia</label>
+                <select id="tcompetencia" name="tcompetencia" class="selectpicker">
+                  <optgroup label="CrossFit">
+                    <option value="CrossBeginer">Principante</option>
+                    <option value="CrossInter">Intermedio</option>
+                    <option value="CrossRX">RX(Avanzado)</option>
+                  </optgroup>
+                  <optgroup label="Gymnastic">
+                    <option value="GymInter">Intermedio</option>
+                    <option value="GymRX">RX(Avanzado)</option>
+                  </optgroup>
+                  <optgroup label="Weightlifting">
+                    <option value="WeighInter">Intermedio</option>
+                    <option value="WeightRX">RX(Avanzado)</option>
+                  </optgroup>
+                  <optgroup label="Condition">
+                    <option value="ConditRX">RX</option>
+                    <option value="ConditRX">Avanzado</option>
+                    <option value="ConditBeginer">Principiante</option>
+                  </optgroup>
+                  <optgroup label="Bajar de Peso">
+                    <option value="lossweight">Bajar de Peso</option>
+                  </optgroup>
+                </select>
+              </div>
+            </div>
             <div class="col-xs-6 col-sm-6 col-md-6">
               <div class="form-group">
                 <input type="text" name="nombre" class="form-control" id="nombre" placeholder="Nombre" data-rule="minlen:4" data-msg="Please enter at least 4 chars" required />
@@ -73,37 +101,11 @@
               <input type="text" class="form-control" name="telefono" id="telefono" placeholder="telefono"/>
               <div class="validation"></div>
             </div>
-            <div class="col-xs-6 col-sm-6 col-md-6">
-              <div class="form-group">
-                <label for="Clasificacion">Tipo de Competencia</label>
-                <select id="clasificacion" name="clasifica" class="selectpicker">
-                  <optgroup label="CrossFit">
-                    <option value="CrossBeginer">Principante</option>
-                    <option value="CrossInter">Intermedio</option>
-                    <option value="CrossRX">RX(Avanzado)</option>
-                  </optgroup>
-                  <optgroup label="Gymnastic">
-                    <option value="GymInter">Intermedio</option>
-                    <option value="GymRX">RX(Avanzado)</option>
-                  </optgroup>
-                  <optgroup label="Weightlifting">
-                    <option value="WeighInter">Intermedio</option>
-                    <option value="WeightRX">RX(Avanzado)</option>
-                  </optgroup>
-                  <optgroup label="Condition">
-                    <option value="ConditionRX">RX</option>
-                    <option value="ConditionRX">Avanzado</option>
-                    <option value="ConditionBeginer">Principiante</option>
-                  </optgroup>
-                    <option value="lossweight">Bajar de Peso</option>
-                </select>
-              </div>
-            </div>
               <div class="col-xs-6 col-sm-6 col-md-6">
                 <label for="Genero">Genero</label>
                 <div class="form-group">
-                  <input type="radio" name="gender" value="hombre">Hombre<br>
-                  <input type="radio" name="gender" value="mujer">Mujer<br>
+                  <input type="radio" name="gender" value="H">Hombre<br>
+                  <input type="radio" name="gender" value="M">Mujer<br>
                 </div>
               </div>
               <div class="col-xs-6 col-sm-6 col-md-6">

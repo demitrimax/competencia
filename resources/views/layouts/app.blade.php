@@ -66,7 +66,7 @@
           <div class="col-md-2 mob-logo">
             <div class="row">
               <div class="site-logo">
-                <a href="index.html"><img src="img/maxeffortchallenge.png" alt="" /></a>
+                <a href="{{url('/')}}"><img src="img/maxeffortchallenge.png" alt="" /></a>
               </div>
             </div>
           </div>

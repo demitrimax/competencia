@@ -25,6 +25,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        //configurar para un hosting compartido --por el momento no sirve
+        /*
+        $this->app->bind('path.public', function() {
+           return base_path().'/public_html';
+         });
+         */
     }
 }

@@ -34,5 +34,10 @@ return [
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
+    /*
+    'paypal' => [
+        'client_id' => 'armandoaguilar1-facilitator@gmail.com',
+        'secret' => 'Ab0Aww68L-j4NYniK6XG2D1QpfZD4wS3FrAau2W83Hus52SpRHDkeptsYIg1lW1FmRsPnV5Y76cPPJ7J',
+    ],*/
 
 ];
