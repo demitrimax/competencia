@@ -21,3 +21,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/registro', 'registroController@index');
 Route::post('/registro', 'registroController@guardar');
+Route::post('/registrado') 'registroController@registrado');
