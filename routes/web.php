@@ -25,3 +25,10 @@ Route::post('/registro', 'registroController@guardar');
 Route::get('/prueba', function() {
   return view('payprueba');
 });
+
+Route::get('/plans','PlansController@index');
+Route::get('/plan/{plan}', 'PlansController@show');
+
+Route::get('/braintree/token', 'BraintreeTokenController@token');
+
+Route::post('/subscribe', 'SubscriptionsController@store');
