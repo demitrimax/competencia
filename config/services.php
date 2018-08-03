@@ -40,4 +40,12 @@ return [
         'secret' => 'Ab0Aww68L-j4NYniK6XG2D1QpfZD4wS3FrAau2W83Hus52SpRHDkeptsYIg1lW1FmRsPnV5Y76cPPJ7J',
     ],*/
 
+    'braintree' => [
+        'model' => App\User::class, //model used to processs subscriptions
+        'environment' => env('BRAINTREE_ENV'),
+        'merchant_id' => env('BRAINTREE_MERCHANT_ID'),
+        'public_key' => env('BRAINTREE_PUBLIC_KEY'),
+        'private_key' => env('BRAINTREE_PRIVATE_KEY'),
+],
+
 ];

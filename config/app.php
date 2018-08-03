@@ -161,6 +161,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         //'Netshell\Paypal\PaypalServiceProvider',
+        Laravel\Cashier\CashierServiceProvider::class,
 
     ],
 
