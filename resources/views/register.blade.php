@@ -24,9 +24,11 @@
 
       <div class="row marginbot-80 centered-form">
         <div class="col-lg-8 col-md-offset-2">
-          <div id="sendmessage">Gracias por su registro!</div>
+          <div class="panel panel-default">
+            <div class="panel-heading">Registrese</div>
+            <div id="sendmessage">Gracias por su registro!</div>
           <div id="errormessage"></div>
-          <form action="{{ url('/registro')}}" method="post" role="form" class="contactForm">
+            <form action="{{ url('/registro')}}" method="post" role="form" class="Form" id="registroform">
             {{ csrf_field() }}
             <div>
               <div class="form-group">
@@ -116,8 +118,11 @@
             <div>
               <img src="https://www.paypalobjects.com/webstatic/es_MX/mktg/logos-buttons/redesign/btn_8.png" alt="PayPal" />
             </div>
-            <div class="text-center"><button type="submit" class="btn btn-skin btn-lg btn-block">Registrarse</button></div>
+              <input name="producto" value="Suscripcion Competencia MaxEffortChallenge" hidden>
+              <input name="precio" value=120.00 hidden>
+            <div class="text-center"><button type="submit" class="btn btn-skin btn-lg btn-block" id="submit-button">Registrarse</button></div>
           </form>
+          </div>
         </div>
       </div>
 
@@ -181,7 +186,6 @@
 
 @section('scripts')
   <script src="js/jquery.countdown.js"></script>
-
   <script>
   //countdown
 $(document).ready(function(){
@@ -194,4 +198,5 @@ $(document).ready(function(){
   });
 });
   </script>
+
 @endsection

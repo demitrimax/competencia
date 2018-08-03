@@ -33,3 +33,5 @@ Route::get('/braintree/token', 'BraintreeTokenController@token');
 
 Route::post('/subscribe', 'SubscriptionsController@store');
 Route::post('/registrado', 'SubscriptionsController@registrado');
+
+Route::get('/payment/process', 'PaymentsController@process')->name('payment.process');
