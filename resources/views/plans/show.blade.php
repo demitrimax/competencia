@@ -5,11 +5,11 @@
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
         <div class="panel panel-default">
-          <div class="panel-heading">{{ $plan }}</div>
+          <div class="panel-heading">{{ $plan->name }}</div>
           <div class="panel-body">
             <form action="{{ url('/subscribe') }}" method="post">
                 <div id="dropin-container"></div>
-                <input type="hidden" name="plan" value="">
+                <input type="hidden" name="plan" value="{{ $plan->id }}">
                 {{ csrf_field() }}
                 <hr>
 
