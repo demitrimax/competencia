@@ -179,7 +179,7 @@ class registroController extends Controller
     }
 
     public function validaform(Request $request) {
-
+      /*
         $validator = Validator::make($request->all(), [
           'nombre' => 'required',
           'apellidos' => 'required',
@@ -191,6 +191,6 @@ class registroController extends Controller
             return response()->json(['success'=>'Added new records']);
         }
         return response()->json(['error']=>$validator->errors()->all()]);
-
+        */
     }
 }
