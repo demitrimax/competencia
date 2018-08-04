@@ -177,4 +177,20 @@ class registroController extends Controller
       $suscriptor = suscriptores::find($id);
       return view('cancelado')->with(compact('suscriptor'));
     }
+
+    public function validaform(Request $request) {
+
+        $validator = Validator::make($request->all(), [
+          'nombre' => 'required',
+          'apellidos' => 'required',
+          'email' = 'required|email',
+          'fecnac' = 'required',
+        ]);
+
+        if ($validator->passes()){
+            return response()->json(['success'=>'Added new records']);
+        }
+        return response()->json(['error']=>$validator->errors()->all()]);
+
+    }
 }

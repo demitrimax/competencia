@@ -73,6 +73,7 @@
             <div class="form-group">
               <input type="email" class="form-control" name="email" id="email" placeholder="Correo Electronico" required/>
               <div class="validation"></div>
+              <div id="campo_oculto" style="display:none;">El correo ya está en uso</div> 
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6">
               <div class="form-group">
