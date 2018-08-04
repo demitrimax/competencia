@@ -73,6 +73,7 @@
             <div class="form-group">
               <input type="email" class="form-control" name="email" id="email" placeholder="Correo Electronico" required/>
               <div class="validation"></div>
+              <div id="campo_oculto" style="display:none;">El correo ya está en uso</div> 
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6">
               <div class="form-group">
@@ -100,12 +101,12 @@
             </div>
 
             <div class="form-group">
-              <input type="text" class="form-control" name="telefono" id="telefono" placeholder="telefono"/>
+              <input type="text" class="form-control" name="telefono" id="telefono" placeholder="telefono" required/>
               <div class="validation"></div>
             </div>
               <div class="col-xs-6 col-sm-6 col-md-6">
                 <label for="Genero">Genero</label>
-                <div class="form-group">
+                <div class="form-group" required>
                   <input type="radio" name="gender" value="H">Hombre<br>
                   <input type="radio" name="gender" value="M">Mujer<br>
                 </div>
@@ -118,8 +119,8 @@
             <div>
               <img src="https://www.paypalobjects.com/webstatic/es_MX/mktg/logos-buttons/redesign/btn_8.png" alt="PayPal" />
             </div>
-              <input name="producto" value="Suscripcion Competencia MaxEffortChallenge" hidden>
-              <input name="precio" value=120.00 hidden>
+              <input name="producto" value="Suscripcion Competencia MaxEffortChallenge 2018" hidden>
+              <input name="precio" value=200.00 hidden>
             <div class="text-center"><button type="submit" class="btn btn-skin btn-lg btn-block" id="submit-button">Registrarse</button></div>
           </form>
           </div>
@@ -188,15 +189,15 @@
   <script src="js/jquery.countdown.js"></script>
   <script>
   //countdown
-$(document).ready(function(){
-  //console.log('Hola');
-  $('#wrapper').countdown('2018/10/10', function(event) {
-    $('#dias').html(event.strftime('%D'));
-    $('#horas').html(event.strftime('%H'));
-    $('#minutos').html(event.strftime('%M'));
-    $('#segundos').html(event.strftime('%S'));
-  });
-});
+        $(document).ready(function(){
+          //console.log('Hola');
+          $('#wrapper').countdown('2018/10/10', function(event) {
+            $('#dias').html(event.strftime('%D'));
+            $('#horas').html(event.strftime('%H'));
+            $('#minutos').html(event.strftime('%M'));
+            $('#segundos').html(event.strftime('%S'));
+          });
+        });
   </script>
 
 @endsection

@@ -21,7 +21,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/registro', 'registroController@index');
 Route::post('/registro', 'registroController@paypalpago');
-Route::get('/pagocorrecto', 'registroController@guardar'); //ya que se aprobó el pago ahora registrar el usuario
+Rpute::post('/verifregistro','registroController@validaform');
+Route::get('/pagocorrecto/{id}', 'registroController@guardar'); //ya que se aprobó el pago ahora registrar el usuario
+Route::get('/suscriptcorrecto/{id}','registroController@UsuarioRegistrado');
+Route::get('/pagocancelado/{id}', 'registroController@cancelado');
 
 Route::get('/prueba', function() {
   return view('payprueba');
