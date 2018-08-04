@@ -183,8 +183,8 @@ class registroController extends Controller
         $validator = Validator::make($request->all(), [
           'nombre' => 'required',
           'apellidos' => 'required',
-          'email' = 'required|email',
-          'fecnac' = 'required',
+          'email' => 'required|email',
+          'fecnac' => 'required',
         ]);
 
         if ($validator->passes()){
