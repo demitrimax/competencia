@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\suscriptores;
+
 use Validator;
 use URL;
 use Session;
 use Redirect;
 use Input;
-
-//use config\paypal;
 
 use PayPal\Api\Payer;
 use PayPal\Api\Item;
@@ -70,9 +70,31 @@ class registroController extends Controller
 
     public function paypalpago(Request $request)
     {
+
+      //verificar que el google captcha
+
+      //guardar los datos del usuario
+
+      $suscriptor = new suscriptores();
+      $suscriptor->nombre = $request->input('nombre');
+      $suscriptor->apellidos = $request->input('apellidos');
+      $suscriptor->fecnac = $request->input('fecnac');
+      $suscriptor->edad = $request->input('edad');
+      $suscriptor->genero = $request->input('gender');
+      $suscriptor->telefono = $request->input('telefono');
+      $suscriptor->tcompetencia = $request->input('tcompetencia');
+      $suscriptor->email = $request->input('email');
+      $suscriptor->password = bcrypt($request->input('password'));
+      $suscriptor->premium = 0;
+      $suscriptor->save();
+
+
+          $id_suscriptor = $suscriptor->id;
           $precio = $request->input('precio');
+          $precio = 200;
           $precio = (int) $precio;
           $producto = $request->input('producto');
+          $producto = "Suscripcion Competencia MaxEffortChallenge 2018";
           $envio = 0;
         //dd($request->all());
 
@@ -107,8 +129,8 @@ class registroController extends Controller
                       ->setInvoiceNumber(uniqid());
         //echo $transaccion->getInvoiceNumber();
         $redireccionar = new RedirectUrls();
-        $redireccionar->setReturnUrl(url('/pagocorrecto'))
-                      ->setCancelUrl(url('/pagocancelado'));
+        $redireccionar->setReturnUrl(url('/pagocorrecto').'/'.$id_suscriptor)
+                      ->setCancelUrl(url('/pagocancelado').'/'.$id_suscriptor);
 
         $pago = new Payment();
         $pago->setIntent('sale')
@@ -116,7 +138,7 @@ class registroController extends Controller
               ->setRedirectUrls($redireccionar)
               ->setTransactions(array($transaccion));
 
-
+    //dd($pago);
     try {
       //dd($pago->create($this->apiContext));exit;
         $pago->create($this->apiContext);
@@ -132,30 +154,27 @@ class registroController extends Controller
     $aprobado = $pago->getApprovalLink();
 
     return redirect($aprobado);
-        //verificar que el google captcha
-        //guardar el post
-        /*
-        $suscriptor = new suscriptores();
-        $suscriptor->nombre = $request->input('nombre');
-        $suscriptor->apellidos = $request->input('apellidos');
-        $suscriptor->fecnac = $request->input('fecnac');
-        $suscriptor->edad = $request->input('edad');
-        $suscriptor->sexo = $request->input('gender');
-        $suscriptor->telefono = $request->input('telefono');
-        $suscriptor->clasificacion = $request->input('clasifica');
-        $suscriptor->email = $request->input('email');
-        $suscriptor->password = bcrypt($request->input('password'));
-        $suscriptor->premium = 0;
-        $suscriptor->save();
-        */
-        //antes verificar el pago
 
-        //return redirect('registrado');
-        //aqui debe llevar a la pagina del usuario en este caso utilizare el find
 
     }
 
-    public function guardar() {
-      return view('registrado');
+    public function guardar($id) {
+      $suscriptor = suscriptores::find($id);
+      $suscriptor->premium = 1;
+      $suscriptor->save();
+      //actualizar que ya es usuario premium porque hizo el pago
+      //en esta parte hay que meterle mas seguridad
+
+      return redirect('/suscripcorrecto/'.$id);
+    }
+
+    public function UsuarioRegistrado ($id) {
+      $suscriptor = suscriptores::find($id);
+      return view('registrado')->with(compact('suscriptor'));
+    }
+
+    public function cancelado($id) {
+      $suscriptor = suscriptores::find($id);
+      return view('cancelado')->with(compact('suscriptor'));
     }
 }
