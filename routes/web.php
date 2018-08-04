@@ -21,7 +21,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/registro', 'registroController@index');
 Route::post('/registro', 'registroController@paypalpago');
-Rpute::post('/verifregistro','registroController@validaform');
+Route::post('/verifregistro','registroController@validaform');
 Route::get('/pagocorrecto/{id}', 'registroController@guardar'); //ya que se aprobó el pago ahora registrar el usuario
 Route::get('/suscriptcorrecto/{id}','registroController@UsuarioRegistrado');
 Route::get('/pagocancelado/{id}', 'registroController@cancelado');
