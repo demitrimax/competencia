@@ -165,7 +165,7 @@ class registroController extends Controller
       //actualizar que ya es usuario premium porque hizo el pago
       //en esta parte hay que meterle mas seguridad
 
-      return redirect('/suscripcorrecto/'.$id);
+      return redirect('/suscriptcorrecto/'.$id);
     }
 
     public function UsuarioRegistrado ($id) {
