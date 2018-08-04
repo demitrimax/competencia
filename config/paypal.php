@@ -10,13 +10,16 @@ return array(
     'live_client_id' => env('PAYPAL_LIVE_CLIENT_ID', ''),
     'live_secret' => env('PAYPAL_LIVE_SECRET', ''),
 
+    'client_id' =>env('PAYPAL_SANDBOX_CLIENT_ID', ''),
+    'secret' => env('PAYPAL_SANDBOX_SECRET', ''),
+
 
     /**
      * SDK configuration settings
      */
     'settings' => array(
 
-        /** 
+        /**
          * Payment Mode
          *
          * Available options are 'sandbox' or 'live'

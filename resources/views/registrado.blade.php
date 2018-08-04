@@ -11,6 +11,7 @@
               <h2 class="h-bold">FELICIDADES!!</h2>
               <div class="divider-header"></div>
               <p>Te acabas de suscribir correctamente a la competencia.</p>
+              {{ print_r($_GET) }}
             </div>
           </div>
         </div>
