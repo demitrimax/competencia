@@ -96,6 +96,16 @@
                       <li><a class="external" href="{{ url('/plans')}}">Historia</a></li>
                       <li><a class="external" href="#">Mas Retos</a></li>
                       <li><a class="external" href="#">Programaciones</a></li>
+                      @auth
+                          <li><a class="external" href=" {{ route('logout') }}" onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">Cerrar Sesión</a></li>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+                      @else
+                          <li><a href="{{ route('login') }}">Login</a></li>
+                          <li><a href="{{ route('register') }}">Register</a></li>
+                      @endauth
                     </ul>
                   </li>
                 </ul>

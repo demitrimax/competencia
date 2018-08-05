@@ -26,6 +26,9 @@ class Suscriptores extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->boolean('premium');
+            $table->string('paypalemail')->nullable();
+            $table->integer('pago')->nullable();
+            $table_>rememberToken();
             $table->timestamps();
         });
     }

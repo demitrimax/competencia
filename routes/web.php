@@ -41,3 +41,10 @@ Route::post('/registrado', 'SubscriptionsController@registrado');
 
 
 Route::get('/payment/process', 'PaymentsController@process')->name('payment.process');
+
+//vista previa email
+
+Route::get('email', function() {
+    Mail::to('armandoaguilar1@hotmail.com')
+          ->send(new App\Mail\WelcomeUser());
+});

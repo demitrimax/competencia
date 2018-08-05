@@ -35,7 +35,7 @@
           <div class="section-heading text-center">
             <h2 class="h-bold">Que es Max Effort Challenge</h2>
             <div class="divider-header"></div>
-            <p>Lorem ipsum dolor sit amet, agam perfecto sensibus usu at duo ut iriure.</p>
+            <p>La competencia Max Effort Challenge incluye diferentes partes.</p>
           </div>
         </div>
       </div>

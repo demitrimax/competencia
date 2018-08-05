@@ -4,6 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\suscriptores;
+use Illuminate\Support\Facades\Mail;
+
+use Illuminate\Bus\Queueable;
+use Illuminate\Mail\Mailable;
+use Illuminate\Queue\SerializesModels;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
 use Validator;
 use URL;
@@ -170,6 +176,11 @@ class registroController extends Controller
 
     public function UsuarioRegistrado ($id) {
       $suscriptor = suscriptores::find($id);
+
+      //aqui enviar email notificando el registro
+      Mail::to($suscriptor->email)
+            ->send(new App\Mail\WelcomeUser());
+
       return view('registrado')->with(compact('suscriptor'));
     }
 
