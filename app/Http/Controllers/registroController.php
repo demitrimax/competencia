@@ -76,11 +76,38 @@ class registroController extends Controller
 
     public function paypalpago(Request $request)
     {
-
+      //validadores
+      $rules = [
+        'nombre' => 'required|min:3|max:191',
+        'apellidos' => 'required|max:191',
+        'fecnac' => 'required',
+        'edad' => 'required|integer',
+        'gender' => 'required',
+        'telefono' => 'required',
+        'tcompetencia' => 'required',
+        'email' => 'required|email|unique:suscriptores',
+        'password' => 'required|min:5|max:15|confirmed',
+      ];
+      $mensajes = [
+        'nombre.required' => 'El nombre es datos requerido',
+        'nombre.min' => 'El nombre tiene que tener más de 2 letras',
+        'nombre.max' => 'El nombre no puede tener más de 190 letras',
+        'fecnac.required' => 'Es necesario la fecha de nacimiento',
+        'gender.required' => 'Es necesario seleccione el Genero',
+        'telefono.required' => 'El telefono es un dato requerido',
+        'tcompetencia.required' => 'Tiene que seleccionar una competencia',
+        'email.required' => 'El email es un dato requerido',
+        'email.email' => 'Verifique el correo electronico',
+        'email.unique' => 'Ya existe un usuario registrado con ese correo eletronico',
+        'password.required' => 'Tiene que escribir una contraseña',
+        'password.min' => 'La contraseña debe contener al menos 5 carácteres',
+        'password.max' => 'La contraseña no debe pasar de 20 carácteres',
+        'password.confirmed' => 'Las contreñas no coinciden',
+      ];
+      $this->validate($request, $rules, $mensajes);
       //verificar que el google captcha
 
-      //guardar los datos del usuario
-
+      //guardar los datos del usuario en la bd
       $suscriptor = new suscriptores();
       $suscriptor->nombre = $request->input('nombre');
       $suscriptor->apellidos = $request->input('apellidos');

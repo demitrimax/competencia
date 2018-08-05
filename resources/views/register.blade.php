@@ -12,7 +12,8 @@
             <div class="section-heading text-center">
               <h2 class="h-bold">Resgistro</h2>
               <div class="divider-header"></div>
-              <p>Para participar porfavor complete el registro.</p>
+              <p>Para participar en la competencia tendrá que realizar un pago por <strong>$200.00 MXN</strong></p>
+              <spam>Por favor registrese a continuación será redirigido a PayPal para realizar su pago.</spam>
             </div>
           </div>
         </div>
@@ -27,13 +28,22 @@
           <div class="panel panel-default">
             <div class="panel-heading">Registrese</div>
             <div id="sendmessage">Gracias por su registro!</div>
-          <div id="errormessage"></div>
+            @if ($errors->any())
+              <div class="alert alert-danger">
+                <ul>
+                  @foreach ($errors->all() as $error)
+                    <li>{{$error}}</li>
+                  @endforeach
+                </ul>
+              </div>
+              @endif
             <form action="{{ url('/registro')}}" method="post" role="form" class="Form" id="registroform">
             {{ csrf_field() }}
             <div>
               <div class="form-group">
                 <label for="tcompetencia">Tipo de Competencia</label>
                 <select id="tcompetencia" name="tcompetencia" class="selectpicker">
+                      <option value="">Seleccione una Competencia</option>
                   <optgroup label="CrossFit">
                     <option value="CrossBeginer">Principante</option>
                     <option value="CrossInter">Intermedio</option>
@@ -60,20 +70,20 @@
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6">
               <div class="form-group">
-                <input type="text" name="nombre" class="form-control" id="nombre" placeholder="Nombre" data-rule="minlen:4" data-msg="Please enter at least 4 chars" required />
+                <input type="text" name="nombre" class="form-control" id="nombre" placeholder="Nombre" data-rule="minlen:4" data-msg="Please enter at least 4 chars" required value="{{old('nombre')}}"/>
                 <div class="validation"></div>
               </div>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6">
               <div class="form-group">
-                <input type="text" name="apellidos" class="form-control" id="apellidos" placeholder="Apellidos" data-rule="minlen:4" data-msg="Please enter at least 4 chars" required/>
+                <input type="text" name="apellidos" class="form-control" id="apellidos" placeholder="Apellidos" data-rule="minlen:4" data-msg="Please enter at least 4 chars" required value="{{old('apellidos')}}"/>
                 <div class="validation"></div>
               </div>
             </div>
             <div class="form-group">
-              <input type="email" class="form-control" name="email" id="email" placeholder="Correo Electronico" required/>
+              <input type="email" class="form-control" name="email" id="email" placeholder="Correo Electronico" required value="{{ old('email') }}"/>
               <div class="validation"></div>
-              <div id="campo_oculto" style="display:none;">El correo ya está en uso</div> 
+              <div id="campo_oculto" style="display:none;">El correo ya está en uso</div>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6">
               <div class="form-group">
@@ -83,25 +93,25 @@
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6">
               <div class="form-group">
-                <input type="password" name="confpassword" class="form-control" id="confpassword" placeholder="Confirma contraseña" />
+                <input type="password" name="password_confirmation" class="form-control" id="password_confirmation" placeholder="Confirma contraseña" />
                 <div class="validation"></div>
               </div>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6">
               <div class="form-group">
-                <input type="number" name="edad" class="form-control" id="edad" placeholder="Edad" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                <input type="number" name="edad" class="form-control" id="edad" placeholder="Edad" data-rule="minlen:4" data-msg="Please enter at least 4 chars" value="{{ old('edad') }}"/>
                 <div class="validation"></div>
               </div>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6">
               <div class="form-group">
-                <input type="date" name="fecnac" class="form-control" id="fecnac" placeholder="Fecha de Nacimiento" />
+                <input type="date" name="fecnac" class="form-control" id="fecnac" placeholder="Fecha de Nacimiento" value="{{ old('fecnac') }}"/>
                 <div class="validation"></div>
               </div>
             </div>
 
             <div class="form-group">
-              <input type="text" class="form-control" name="telefono" id="telefono" placeholder="telefono" required/>
+              <input type="text" class="form-control" name="telefono" id="telefono" placeholder="telefono" required value="{{ old('telefono') }}"/>
               <div class="validation"></div>
             </div>
               <div class="col-xs-6 col-sm-6 col-md-6">
@@ -123,6 +133,14 @@
               <input name="precio" value=200.00 hidden>
             <div class="text-center"><button type="submit" class="btn btn-skin btn-lg btn-block" id="submit-button">Registrarse</button></div>
           </form>
+
+          </div>
+          <div class="panel panel-default">
+              <div class="panel-heading">Importante!!!</div>
+              Será redirigiado al Servidor PayPal en modo SandBox (pruebas)<br>
+              cuentas de usuario para hacer los pagos: <br>
+              usuario: runnermatrix@hotmail.com pass: runnermatrix <br>
+              usuario: israel_hp@hotmail.com pass: israelgarcia
           </div>
         </div>
       </div>
