@@ -46,7 +46,6 @@
   <div class="text-center">
     <div class="container">
 
-
       <div class="row">
         <div class="col-xs-6 col-sm-3 col-md-3">
           <div class="team-wrapper-big wow bounceInUp" data-wow-delay="0.2s">
@@ -81,6 +80,17 @@
       </div>
     </div>
   </div>
+  <div class="text-center">
+    <div class="container">
+    <div class="wow bounceInUp" data-wow-offset="0" data-wow-delay="1s">
+      <div class="margintop-30">
+        <a href="#about" class="btn btn-skin" id="btn-scroll">Resgistrate Aquí</a>
+        <a href="#about" class="btn btn-skin" id="btn-scroll">Inicia Sesión</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 </section>
 <!-- /Section: about -->
 
