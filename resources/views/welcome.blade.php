@@ -244,12 +244,14 @@
       <div class="col-md-12">
         <div class="testimonialslide clearfix flexslider">
           <ul class="slides">
+            @foreach ($motivador as $motivadora)
             <li>
               <blockquote>
-                Usu ei porro deleniti similique, per no consetetur necessitatibus. Ut sed augue docendi alienum, ex oblique scaevola inciderint pri, unum movet cu cum. Et cum impedit epicuri
+                {{ $motivadora->frase }}
               </blockquote>
-              <h4>Daniel Dan <span>&#8213; MA System</span></h4>
+              <h4>{{ $motivadora->autor }}</h4>
             </li>
+            @endforeach
             <li>
               <blockquote>
                 Usu ei porro deleniti similique, per no consetetur necessitatibus. Ut sed augue docendi alienum, ex oblique scaevola inciderint pri, unum movet cu cum. Et cum impedit epicuri
