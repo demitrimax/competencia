@@ -6,7 +6,7 @@
     <div class="home-video-wrapper">
 
       <div class="homevideo-container">
-        <div id="P1" class="bg-player" style="display:block; margin: auto; background: rgba(0,0,0,0.5)" data-property="{videoURL:'https://www.youtube.com/watch?v=cEVzMu-ob7s&t=49',containment:'.homevideo-container', quality: 'hd720', showControls: false, autoPlay:true, mute:true, startAt:0, opacity:1}"></div>
+        <div id="P1" class="bg-player" style="display:block; margin: auto; background: rgba(0,0,0,0.5)" data-property="{videoURL:'https://www.youtube.com/watch?v=cEVzMu-ob7s&t=49',containment:'.homevideo-container', quality: 'hd720', showControls: false, autoPlay:true, mute:true, startAt:49, opacity:1}"></div>
       </div>
       <div class="overlay">
         <div class="text-center video-caption">
@@ -85,7 +85,7 @@
     <div class="wow bounceInUp" data-wow-offset="0" data-wow-delay="1s">
       <div class="margintop-30">
         <a href="{{ url('/registro') }}" class="btn btn-skin" id="btn-scroll">Resgistrate Aquí</a>
-        <a href="#about" class="btn btn-skin" id="btn-scroll">Inicia Sesión</a>
+        <a href="{{ url('/iniciasesion') }}" class="btn btn-skin" id="btn-scroll">Inicia Sesión</a>
       </div>
     </div>
   </div>
@@ -114,9 +114,9 @@
       <div class="col-lg-8 col-lg-offset-2">
         <div class="wow flipInY" data-wow-offset="0" data-wow-delay="0.4s">
           <div class="section-heading text-center">
-            <h2 class="h-bold">Clasificaciones</h2>
+            <h2 class="h-bold">Entradas del Blog</h2>
             <div class="divider-header"></div>
-            <p>La competencia tiene tres grandes clasificaciones para la competencia.</p>
+            <p>Algunos articulos de interes.</p>
           </div>
         </div>
       </div>
@@ -128,54 +128,24 @@
     <div class="container">
 
       <div class="row">
+        @foreach($entradas as $entrada)
         <div class="col-xs-6 col-sm-3 col-md-3">
           <div class="wow fadeInLeft" data-wow-delay="0.2s">
             <div class="service-box">
               <div class="service-icon">
-                <span class="pe-7s-user pe-5x"></span>
+                <img src="{{ url('storage/'.$entrada->image) }}" alt="post image" class="image-responsive" style="width:150px;">
               </div>
               <div class="service-desc">
-                <h5>Principante</h5>
+                <h5>{{$entrada->title}}</h5>
                 <p>
-                  Ad denique euripidis signiferumque vim, iusto admodum quo cu. No tritani neglegentur mediocritatem duo.
+                  {{$entrada->excerpt}}
                 </p>
-                <a href="#" class="btn btn-skin">Learn more</a>
+                <a href="{{ url('entrada/'.$entrada->id)}}" class="btn btn-skin">Articulo Completo</a>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-xs-6 col-sm-3 col-md-3">
-          <div class="wow fadeInUp" data-wow-delay="0.2s">
-            <div class="service-box">
-              <div class="service-icon">
-                <span class="pe-7s-user pe-5x"></span>
-              </div>
-              <div class="service-desc">
-                <h5>Intermedio</h5>
-                <p>
-                  Ad denique euripidis signiferumque vim, iusto admodum quo cu. No tritani neglegentur mediocritatem duo.
-                </p>
-                <a href="#" class="btn btn-skin">Learn more</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-3 col-md-3">
-          <div class="wow fadeInUp" data-wow-delay="0.2s">
-            <div class="service-box">
-              <div class="service-icon">
-                <span class="pe-7s-note pe-5x"></span>
-              </div>
-              <div class="service-desc">
-                <h5>RX (Avanazado)</h5>
-                <p>
-                  Ad denique euripidis signiferumque vim, iusto admodum quo cu. No tritani neglegentur mediocritatem duo.
-                </p>
-                <a href="#" class="btn btn-skin">Learn more</a>
-              </div>
-            </div>
-          </div>
-        </div>
+        @endforeach
 
       </div>
     </div>

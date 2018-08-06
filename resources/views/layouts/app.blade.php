@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Max Effort Challenge</title>
+  <title>@yield('page-title', 'Max Effort Challenge')</title>
 
   <!-- css -->
 
@@ -84,7 +84,7 @@
               <!-- Collect the nav links, forms, and other content for toggling -->
               <div class="collapse navbar-collapse" id="menu">
                 <ul class="nav navbar-nav navbar-right">
-                  <li class="active"><a href="#intro">Principal</a></li>
+                  <li class="active"><a href="{{ url('/')}}">Principal</a></li>
                   <li><a href="#about">Tabla de Posiciones</a></li>
                   <li><a href="#service">Categorias</a></li>
                   <li><a href="#works">Estándar de Movimiento</a></li>
