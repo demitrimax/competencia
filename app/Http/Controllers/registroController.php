@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\suscriptores;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\WelcomeUser;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
@@ -192,8 +193,10 @@ class registroController extends Controller
     }
 
     public function guardar($id) {
+      //dd($request);
       $suscriptor = suscriptores::find($id);
       $suscriptor->premium = 1;
+      //$suscriptor->paypaldatos = $request->all();
       $suscriptor->save();
       //actualizar que ya es usuario premium porque hizo el pago
       //en esta parte hay que meterle mas seguridad
@@ -202,17 +205,17 @@ class registroController extends Controller
     }
 
     public function UsuarioRegistrado ($id) {
-      $suscriptor = suscriptores::find($id);
+      $suscriptor = suscriptores::findOrFail($id);
 
       //aqui enviar email notificando el registro
       Mail::to($suscriptor->email)
-            ->send(new App\Mail\WelcomeUser());
+            ->send(new WelcomeUser());
 
       return view('registrado')->with(compact('suscriptor'));
     }
 
     public function cancelado($id) {
-      $suscriptor = suscriptores::find($id);
+      $suscriptor = suscriptores::findOrFail($id);
       return view('cancelado')->with(compact('suscriptor'));
     }
 

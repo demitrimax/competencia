@@ -93,7 +93,7 @@
                     <ul class="dropdown-menu">
                       <li><a class="external" href="#">Que es Max Effort Challenge</a></li>
                       <li><a class="external" href="{{ url('/registro') }}">Registrarse</a></li>
-                      <li><a class="external" href="{{ url('/plans')}}">Historia</a></li>
+                      <li><a class="external" href="#">Historia</a></li>
                       <li><a class="external" href="#">Mas Retos</a></li>
                       <li><a class="external" href="#">Programaciones</a></li>
                       @auth
@@ -103,7 +103,7 @@
                                             @csrf
                                         </form>
                       @else
-                          <li><a href="{{ route('login') }}">Login</a></li>
+                          <li><a href="{{ url('/admin') }}">Login</a></li>
                           <li><a href="{{ route('register') }}">Register</a></li>
                       @endauth
                     </ul>

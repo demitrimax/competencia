@@ -26,9 +26,8 @@ Route::get('/pagocorrecto/{id}', 'registroController@guardar'); //ya que se apro
 Route::get('/suscriptcorrecto/{id}','registroController@UsuarioRegistrado');
 Route::get('/pagocancelado/{id}', 'registroController@cancelado');
 
-Route::get('/prueba', function() {
-  return view('payprueba');
-});
+Route::get('/iniciarsesion','SuscriptorController@iniciarsesion');
+
 
 Route::get('/plans','PlansController@index');
 Route::get('/plan/{plan}', 'PlansController@show');
