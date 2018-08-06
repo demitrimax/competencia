@@ -27,15 +27,4 @@ class HomeController extends Controller
         return view('home');
     }
 
-      public function welcome()
-      {
-        $entradas = post::orderBy('id','desc')->take(4)->get();
-        return view('welcome')->with(compact('entradas'));
-      }
-
-      public function entrada($id){
-        $entradablog = post::findOrFail($id);
-        return view('blog')->with(compact('entradablog'));
-      }
-
 }

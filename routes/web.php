@@ -11,8 +11,8 @@
 |
 */
 
-Route::get('/', 'HomeController@welcome');
-Route::get('/entrada/{id}', 'HomeController@entrada');
+Route::get('/', 'inicioController@welcome');
+Route::get('/entrada/{id}', 'inicioController@entrada');
 
 Auth::routes();
 
