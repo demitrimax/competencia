@@ -160,37 +160,37 @@
       <div class="col-md-3">
         <div class="align-center color-white txt-shadow">
           <div class="icon">
-            <i class="pe-7s-stopwatch pe-5x"></i>
+            <i class="pe-7s-users pe-5x"></i>
           </div>
           <strong id="counter-coffee" class="number">1142</strong><br />
-          <span class="text">Minutes</span>
+          <span class="text">Competidores Registrados</span>
         </div>
       </div>
       <div class="col-md-3">
         <div class="align-center color-white txt-shadow">
           <div class="icon">
-            <i class="pe-7s-music pe-5x"></i>
+            <i class="pe-7s-gym pe-5x"></i>
           </div>
           <strong id="counter-music" class="number">229</strong><br />
-          <span class="text">Tracks</span>
+          <span class="text">Mayor peso Registrado</span>
         </div>
       </div>
       <div class="col-md-3">
         <div class="align-center color-white txt-shadow">
           <div class="icon">
-            <i class="pe-7s-coffee pe-5x"></i>
+            <i class="pe-7s-stopwatch pe-5x"></i>
           </div>
           <strong id="counter-clock" class="number">451</strong><br />
-          <span class="text">Cokes</span>
+          <span class="text">Menor tiempo registrado</span>
         </div>
       </div>
       <div class="col-md-3">
         <div class="align-center color-white txt-shadow">
           <div class="icon">
-            <i class="pe-7s-cup pe-5x"></i>
+            <i class="pe-7s-refresh-2 pe-5x"></i>
           </div>
           <strong id="counter-heart" class="number">112</strong><br />
-          <span class="text">Awwards</span>
+          <span class="text">Más repeticiones registrado</span>
         </div>
       </div>
     </div>
