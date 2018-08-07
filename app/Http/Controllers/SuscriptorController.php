@@ -9,6 +9,6 @@ class SuscriptorController extends Controller
     //
     public function iniciasesion()
     {
-      return view('iniciarsesion');
+      return view('suscriptor.login');
     }
 }

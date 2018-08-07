@@ -85,7 +85,7 @@
     <div class="wow bounceInUp" data-wow-offset="0" data-wow-delay="1s">
       <div class="margintop-30">
         <a href="{{ url('/registro') }}" class="btn btn-skin" id="btn-scroll">Resgistrate Aquí</a>
-        <a href="{{ url('/iniciasesion') }}" class="btn btn-skin" id="btn-scroll">Inicia Sesión</a>
+        <a href="{{ url('/suscriptor/login') }}" class="btn btn-skin" id="btn-scroll">Inicia Sesión</a>
       </div>
     </div>
   </div>
