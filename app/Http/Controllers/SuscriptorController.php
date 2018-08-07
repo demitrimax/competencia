@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class SuscriptorController extends Controller
 {
     //
-    public function iniciarsesion()
+    public function iniciasesion()
     {
       return view('iniciarsesion');
     }

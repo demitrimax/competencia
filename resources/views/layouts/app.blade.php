@@ -172,7 +172,15 @@
   <script src="{{asset('js/custom.js')}}"></script>
   @yield('scripts')
   @yield('braintree-script')
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123515722-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'UA-123515722-1');
+</script>
 </body>
 
 </html>

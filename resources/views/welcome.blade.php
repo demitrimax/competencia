@@ -252,12 +252,6 @@
               <h4>{{ $motivadora->autor }}</h4>
             </li>
             @endforeach
-            <li>
-              <blockquote>
-                Usu ei porro deleniti similique, per no consetetur necessitatibus. Ut sed augue docendi alienum, ex oblique scaevola inciderint pri, unum movet cu cum. Et cum impedit epicuri
-              </blockquote>
-              <h4>Mark Wellbeck <span>&#8213; AC Software </span></h4>
-            </li>
           </ul>
         </div>
       </div>
