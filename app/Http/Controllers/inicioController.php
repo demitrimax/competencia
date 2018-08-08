@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\post;
 use App\motivadora;
+use App\carrusel;
 
 class inicioController extends Controller
 {
@@ -13,9 +14,10 @@ class inicioController extends Controller
     {
       $entradas = post::orderBy('id','desc')->take(4)->get();
       $motivador = motivadora::all()->random(2);
+      $carrusel = carrusel::all();
       //dd($motivador);
       //dd($entradas);
-      return view('welcome')->with(compact('entradas','motivador'));
+      return view('welcome')->with(compact('entradas','motivador','carrusel'));
     }
 
     public function entrada($id){

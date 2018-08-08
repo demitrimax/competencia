@@ -19,9 +19,8 @@
   <link href="{{asset('css/owl.theme.css')}}" rel="stylesheet" media="screen" />
   <link href="{{asset('css/flexslider.css')}}" rel="stylesheet" />
   <link href="{{asset('css/animate.css')}}" rel="stylesheet" />
-  <link href="{{asset('css/style.css')}}" rel="stylesheet">
-  <link href="{{asset('color/default.css')}}" rel="stylesheet">
-  <link rel="stylesheet" href="{{asset('leaflet/leaflet.css')}}" />
+  <link href="{{asset('css/style.css')}}" rel="stylesheet" />
+  <link href="{{asset('color/default.css')}}" rel="stylesheet" />
   @yield('head-script')
 
 </head>

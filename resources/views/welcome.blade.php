@@ -85,7 +85,7 @@
     <div class="wow bounceInUp" data-wow-offset="0" data-wow-delay="1s">
       <div class="margintop-30">
         <a href="{{ url('/registro') }}" class="btn btn-skin" id="btn-scroll">Resgistrate Aquí</a>
-        <a href="{{ url('/suscriptor/login') }}" class="btn btn-skin" id="btn-scroll">Inicia Sesión</a>
+        <a href="{{ url('/competidor/login') }}" class="btn btn-skin" id="btn-scroll">Inicia Sesión</a>
       </div>
     </div>
   </div>
@@ -205,9 +205,9 @@
       <div class="col-lg-8 col-lg-offset-2">
         <div class="wow flipInY" data-wow-offset="0" data-wow-delay="0.4s">
           <div class="section-heading text-center">
-            <h2 class="h-bold">Portfolio</h2>
+            <h2 class="h-bold">IMAGENES</h2>
             <div class="divider-header"></div>
-            <p>Lorem ipsum dolor sit amet, agam perfecto sensibus usu at duo ut iriure.</p>
+            <p>Algunas imagenes...</p>
           </div>
         </div>
       </div>
@@ -220,14 +220,9 @@
       <div class="col-sm-12 col-md-12 col-lg-12">
         <div class="wow bounceInUp" data-wow-delay="0.4s">
           <div id="owl-works" class="owl-carousel">
-            <div class="item"><a href="img/works/1.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg"><img src="img/works/1.jpg" class="img-responsive" alt="img"></a></div>
-            <div class="item"><a href="img/works/2.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/2@2x.jpg"><img src="img/works/2.jpg" class="img-responsive " alt="img"></a></div>
-            <div class="item"><a href="img/works/3.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/3@2x.jpg"><img src="img/works/3.jpg" class="img-responsive " alt="img"></a></div>
-            <div class="item"><a href="img/works/4.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/4@2x.jpg"><img src="img/works/4.jpg" class="img-responsive " alt="img"></a></div>
-            <div class="item"><a href="img/works/5.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/5@2x.jpg"><img src="img/works/5.jpg" class="img-responsive " alt="img"></a></div>
-            <div class="item"><a href="img/works/6.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/6@2x.jpg"><img src="img/works/6.jpg" class="img-responsive " alt="img"></a></div>
-            <div class="item"><a href="img/works/7.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/7@2x.jpg"><img src="img/works/7.jpg" class="img-responsive " alt="img"></a></div>
-            <div class="item"><a href="img/works/8.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/8@2x.jpg"><img src="img/works/8.jpg" class="img-responsive " alt="img"></a></div>
+            @foreach($carrusel as $imagen)
+            <div class="item"><a href="{{'storage/'.$imagen->imagen}}" title="{{$imagen->descripcion}}" data-lightbox-gallery="gallery1" data-lightbox-hidpi="{{'storage/'.$imagen->imagen}}"><img src="{{'storage/'.$imagen->imagen}}" class="img-responsive" alt="img"></a></div>
+            @endforeach
           </div>
         </div>
       </div>
@@ -264,29 +259,5 @@
 
 <!-- /Section: contact -->
 
-<!-- google map -->
-<div id="map-btn1-div">
-  <a id="map-btn1" class="gmap-btn close-map-button btn-show" href="#map">
-  Click para abrir el mapa
-  </a>
-</div>
-<a id="map-btn2" class="btn btn-skin btn-lg btn-noradius gmap-btn close-map-button btn-hide" href="#map" title="Close google map" data-toggle="tooltip" data-placement="top">
-Prolongación de Mina #100, Colonia El Recreo Villahermoa, Tabasco
-</a>
 
-<!-- google map -->
-<section id="map" class="close-map">
-  <div id="mapid"></div>
-</section>
-<!-- /google map -->
-@endsection
-@section('scripts')
-<!-- <script src="leaflet/leaflet.js"></script> -->
-<script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
- integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
- crossorigin=""></script>
-
-<script>
-var mapalef = L.map('mapid').setView([51.505, -0.09], 13);
-</script>
 @endsection
