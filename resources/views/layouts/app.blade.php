@@ -13,10 +13,18 @@
 
   <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
   <link href="{{ asset('font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
-  <link href="{{ asset('css/nivo-lightbox.css" rel="stylesheet') }}" />
-  <link href="{{ asset('css/nivo-lightbox-theme/default/default.css') }}" rel="stylesheet" type="text/css" />
-  <link href="{{ asset('css/owl.carousel.css') }}" rel="stylesheet" media="screen" />
+
+  <!--<link href="{{ asset('css/nivo-lightbox.css" rel="stylesheet') }}" />
+  <link href="{{ asset('css/nivo-lightbox-theme/default/default.css') }}" rel="stylesheet" type="text/css" />-->
+<link href="{{asset('css/nivolightbox/nivo-lightbox.css')}}" rel="stylesheet" type="text/css">
+<link href="{{asset('css/nivolightbox/themes/default/default.css')}}" rel="stylesheet" type="text/css">
+
+  <!--<link href="{{ asset('css/owl.carousel.css') }}" rel="stylesheet" media="screen" />
   <link href="{{asset('css/owl.theme.css')}}" rel="stylesheet" media="screen" />
+-->
+  <link rel="stylesheet" href="{{asset('css/owlcarrusel/owl.carousel.min.css')}}" />
+  <link href="{{asset('css/owlcarrusel/owl.theme.default.min.css')}}" rel="stylesheet" media="screen" />
+
   <link href="{{asset('css/flexslider.css')}}" rel="stylesheet" />
   <link href="{{asset('css/animate.css')}}" rel="stylesheet" />
   <link href="{{asset('css/style.css')}}" rel="stylesheet" />
@@ -164,8 +172,12 @@
   <script src="{{asset('js/stellar.js')}}"></script>
   <script src="{{asset('js/gmap.js')}}"></script>
   <script src="{{asset('js/wow.min.js')}}"></script>
-  <script src="{{asset('js/owl.carousel.min.js')}}"></script>
-  <script src="{{asset('js/nivo-lightbox.min.js')}}"></script>
+  <!--<script src="{{asset('js/owl.carousel.min.js')}}"></script>-->
+
+  <script src="{{asset('js/owlcarrusel/owl.carousel.min.js')}}"></script>
+
+  <!-- <script src="{{asset('js/nivo-lightbox.min.js')}}"></script>-->
+  <script src="{{asset('js/nivolightbox/nivo-lightbox.js')}}"></script>
   <script src="{{asset('js/jquery.nicescroll.min.js')}}"></script>
   <script src="{{asset('js/custom.js')}}"></script>
   @yield('scripts')

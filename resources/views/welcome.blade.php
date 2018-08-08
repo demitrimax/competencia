@@ -221,7 +221,13 @@
         <div class="wow bounceInUp" data-wow-delay="0.4s">
           <div id="owl-works" class="owl-carousel">
             @foreach($carrusel as $imagen)
-            <div class="item"><a href="{{'storage/'.$imagen->imagen}}" title="{{$imagen->descripcion}}" data-lightbox-gallery="gallery1" data-lightbox-hidpi="{{'storage/'.$imagen->imagen}}"><img src="{{'storage/'.$imagen->imagen}}" class="img-responsive" alt="img"></a></div>
+            <?php
+            $path = 'storage/'.dirname($imagen->imagen).'/thumbs/';
+            $path = str_replace('\\','/',$path);
+            $nombre = basename($imagen->imagen);
+            $thumbail = $path.$nombre;
+            ?>
+            <div class="item"><a href="{{'storage/'.$imagen->imagen}}" title="{{$imagen->descripcion}}" data-lightbox-gallery="gallery1" data-lightbox-hidpi="{{'storage/'.$imagen->imagen}}"><img src="{{ $thumbail }}" class="img-responsive" alt="img"></a></div>
             @endforeach
           </div>
         </div>
