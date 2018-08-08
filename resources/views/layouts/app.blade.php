@@ -104,7 +104,6 @@
                                         </form>
                       @else
                           <li><a href="{{ url('/admin') }}">Login</a></li>
-                          <li><a href="{{ route('register') }}">Register</a></li>
                       @endauth
                     </ul>
                   </li>
