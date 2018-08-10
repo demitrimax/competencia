@@ -33,6 +33,7 @@ Route::get('/iniciarsesion', function() {
 Route::get('/suscriptor/login', function() {
   return redirect('/competidor/login');
 });
+Route::post('/competidor/login','CompetidorController@login');
 
 
 Route::get('/plans','PlansController@index');
@@ -40,10 +41,6 @@ Route::get('/plan/{plan}', 'PlansController@show');
 
 
 Route::get('/braintree/token', 'BraintreeTokenController@token');
-
-Route::post('/subscribe', 'SubscriptionsController@store');
-Route::post('/registrado', 'SubscriptionsController@registrado');
-
 
 Route::get('/payment/process', 'PaymentsController@process')->name('payment.process');
 
