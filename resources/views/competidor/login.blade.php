@@ -72,13 +72,16 @@
           <div class="col-lg-5">
             <div class="card bg-secondary shadow border-0">
               <div class="card-header bg-white pb-5">
-
+                <div class="text-center">
+                  <img src="{{asset('img/maxeffortchallenge.png')}}" class="centered">
+                </div>
               </div>
               <div class="card-body px-lg-5 py-lg-5">
                 <div class="text-center text-muted mb-4">
                   <small>Inicie Sesión</small>
                 </div>
-                <form role="form">
+                <form role="form" method="post" action="{{ url('login') }}">
+                    @csrf
                   <div class="form-group mb-3">
                     <div class="input-group input-group-alternative">
                       <div class="input-group-prepend">

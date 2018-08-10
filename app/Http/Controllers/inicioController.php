@@ -46,4 +46,8 @@ class inicioController extends Controller
       //dd($entradablog);
       return view('blog')->with(compact('entradablog'));
     }
+
+    public function notfound() {
+      return view('notfound');
+    }
 }
