@@ -74,20 +74,29 @@
               <div class="card-header bg-white pb-5">
                 <div class="text-center">
                   <img src="{{asset('img/maxeffortchallenge.png')}}" class="centered">
+                  @if ($errors->any())
+                    <div class="alert alert-danger">
+                      <ul>
+                        @foreach ($errors->all() as $error)
+                          <li>{{$error}}</li>
+                        @endforeach
+                      </ul>
+                    </div>
+                    @endif
                 </div>
               </div>
               <div class="card-body px-lg-5 py-lg-5">
                 <div class="text-center text-muted mb-4">
                   <small>Inicie Sesión</small>
                 </div>
-                <form role="form" method="post" action="{{ url('competidor/login') }}">
+                <form role="form" method="post" action="{{ route('competidor.login.submit') }}">
                     @csrf
                   <div class="form-group mb-3">
                     <div class="input-group input-group-alternative">
                       <div class="input-group-prepend">
                         <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                       </div>
-                      <input class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="Email" type="email" id="inputEmail" required autofocus>
+                      <input class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="Email" type="email" id="inputEmail" name="email" required autofocus>
                     </div>
                     @if ($errors->has('email'))
                         <span class="invalid-feedback" role="alert">
@@ -100,7 +109,7 @@
                       <div class="input-group-prepend">
                         <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                       </div>
-                      <input id="inputPassword" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="Password" type="password" required>
+                      <input id="password" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="Password" type="password" required>
                       @if ($errors->has('password'))
                           <span class="invalid-feedback" role="alert">
                               <strong>{{ $errors->first('password') }}</strong>

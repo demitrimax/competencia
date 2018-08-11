@@ -45,8 +45,8 @@ return [
             'driver' => 'token',
             'provider' => 'users',
         ],
-        'competdores' => [
-            'driver' => 'sesion',
+        'suscriptor' => [
+            'driver' => 'session',
             'provider' => 'suscriptores',
         ],
     ],

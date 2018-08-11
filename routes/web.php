@@ -26,23 +26,16 @@ Route::get('/pagocorrecto/{id}', 'registroController@guardar'); //ya que se apro
 Route::get('/suscriptcorrecto/{id}','registroController@UsuarioRegistrado');
 Route::get('/pagocancelado/{id}', 'registroController@cancelado');
 
-Route::get('/competidor/login','CompetidorController@iniciasesion');
-Route::get('/iniciarsesion', function() {
-  return redirect('/competidor/login');
+
+Route::prefix('competidor')->group(function() {
+  Route::get('/login', 'Auth\CompetidoresLoginController@showLoginForm')->name('competidor.login');
+  Route::post('/login', 'Auth\CompetidoresLoginController@login')->name('competidor.login.submit');
+  Route::get('/logout', 'Auth\CompetidoresLoginController@logout')->name('competidor.logout');
+  Route::get('/','Auth\CompetidoresController@index')->name('competidor.dashboard');
 });
-Route::get('/suscriptor/login', function() {
-  return redirect('/competidor/login');
-});
-Route::post('/competidor/login','CompetidorController@login');
 
 
-Route::get('/plans','PlansController@index');
-Route::get('/plan/{plan}', 'PlansController@show');
 
-
-Route::get('/braintree/token', 'BraintreeTokenController@token');
-
-Route::get('/payment/process', 'PaymentsController@process')->name('payment.process');
 
 //vista previa email
 
