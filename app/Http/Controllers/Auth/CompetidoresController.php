@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\suscriptores;
 use Intervention\Image\ImageManager;
+use App\compvideos;
+use Auth;
 
 class CompetidoresController extends Controller
 {
@@ -26,7 +28,8 @@ class CompetidoresController extends Controller
      */
     public function index()
     {
-        return view('competidor.dashboard');
+        $videos = compvideos::where('competidor',Auth::user()->id)->get();
+        return view('competidor.dashboard')->with(compact('videos'));
     }
     public function avatarchange(Request $request)
     {

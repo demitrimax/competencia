@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\suscriptores;
 use App\tcompetencia;
+use App\compvideos;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\WelcomeUser;
 
@@ -110,7 +111,7 @@ class registroController extends Controller
       //verificar que el google captcha
 
       //guardar los datos del usuario en la bd
-      $suscriptor = new suscriptores();
+      $suscriptor = new suscriptores;
       $suscriptor->nombre = $request->input('nombre');
       $suscriptor->apellidos = $request->input('apellidos');
       $suscriptor->fecnac = $request->input('fecnac');
@@ -122,6 +123,19 @@ class registroController extends Controller
       $suscriptor->password = bcrypt($request->input('password'));
       $suscriptor->premium = 0;
       $suscriptor->save();
+      //guardar el video que el usuario haya subido
+
+      $tipocompetencia = tcompetencia::where('nombreclave', $request->input('tcompetencia'))->first();
+      //dd($tipocompetencia);
+      if (($request->input('videourl'))==!null)
+      {
+        $videourl = new compvideos;
+        $videourl->competidor = $suscriptor->id;
+        $videourl->videourl = $request->input('videourl');
+        $videourl->tcompetencia = $tipocompetencia->id;
+        $videourl->save();
+      }
+
 
 
           $id_suscriptor = $suscriptor->id;

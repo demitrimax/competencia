@@ -82,6 +82,32 @@ class="profile-page"
               </div>
             </div>
           </div>
+          <div class="mt-5 py-5 border-top text-center">
+            <div class="row justify-content-center">
+            @foreach($videos as $video)
+              <div class="col-lg-9">
+                <div class="row">
+                   <div class="col">
+                     <span>
+                       <?php
+                          $url = $video->videourl;
+                          preg_match('/[\\?\\&]v=([^\\?\\&]+)/', $url, $matches);
+                          //dd($matches);
+                          $idvideo = $matches[1];
+                        ?>
+                       <iframe width="250" height="150" src="https://www.youtube.com/embed/{{$idvideo}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></span>
+                   </div>
+                   <div class="col">
+                     <span><div class="alert alert-primary" role="alert">
+    <strong>Fecha de Carga</strong> {{$video->created_at}}
+</div></span>
+                   </div>
+                 </div>
+
+              </div>
+                @endforeach
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -99,6 +125,7 @@ class="profile-page"
           </button>
         </div>
         <div class="modal-body">
+          <img src="{{asset($avatarimg)}}">
           Agrege o cambie la imagen de su avatar.
           <input type="file" name="avatarimg" class="form-control" accept="image/*">
           <input type="hidden" name="idcompetidor" value="{{ Auth::user()->id }}">

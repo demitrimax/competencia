@@ -20,125 +20,196 @@
       </div>
 
     </div>
-
-    <div class="container">
-
-      <div class="row marginbot-80 centered-form">
-        <div class="col-lg-8 col-md-offset-2">
-          <div class="panel panel-default">
-            <div class="panel-heading">Registrese</div>
-            <div id="sendmessage">Gracias por su registro!</div>
-            @if ($errors->any())
-              <div class="alert alert-danger">
-                <ul>
-                  @foreach ($errors->all() as $error)
-                    <li>{{$error}}</li>
-                  @endforeach
-                </ul>
-              </div>
-              @endif
-            <form action="{{ url('/registro')}}" method="post" role="form" class="Form" id="registroform">
-            {{ csrf_field() }}
-            <div>
-              <div class="form-group">
-                <label for="tcompetencia">Tipo de Competencia</label>
-                <select id="tcompetencia" name="tcompetencia" class="selectpicker">
-                      <option value="">Seleccione una Competencia</option>
-                  <?php $grupo = ""; ?>
-                  @foreach($tcompetencia as $competencia)
-                    <?php
-                    if ($grupo <> $competencia->competencia) {
-                      $grupo = "";
-                    }
-                    if ($grupo == "") {
-                        $grupo = $competencia->competencia ?>
-                        <optgroup label="{{$grupo}}">
-                    <?php }  ?>                
-                        <option value="{{$competencia->nombreclave}}">{{$competencia->nivel}}</option>
-                  @endforeach
-                </select>
-              </div>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-6">
-              <div class="form-group">
-                <input type="text" name="nombre" class="form-control" id="nombre" placeholder="Nombre" data-rule="minlen:4" data-msg="Please enter at least 4 chars" required value="{{old('nombre')}}"/>
-                <div class="validation"></div>
-              </div>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-6">
-              <div class="form-group">
-                <input type="text" name="apellidos" class="form-control" id="apellidos" placeholder="Apellidos" data-rule="minlen:4" data-msg="Please enter at least 4 chars" required value="{{old('apellidos')}}"/>
-                <div class="validation"></div>
-              </div>
-            </div>
-            <div class="form-group">
-              <input type="email" class="form-control" name="email" id="email" placeholder="Correo Electronico" required value="{{ old('email') }}"/>
-              <div class="validation"></div>
-              <div id="campo_oculto" style="display:none;">El correo ya está en uso</div>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-6">
-              <div class="form-group">
-                <input type="password" name="password" class="form-control" id="password" placeholder="Contraseña" data-rule="minlen:4" data-msg="Please enter at least 4 chars" required/>
-                <div class="validation"></div>
-              </div>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-6">
-              <div class="form-group">
-                <input type="password" name="password_confirmation" class="form-control" id="password_confirmation" placeholder="Confirma contraseña" />
-                <div class="validation"></div>
-              </div>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-6">
-              <div class="form-group">
-                <input type="number" name="edad" class="form-control" id="edad" placeholder="Edad" data-rule="minlen:4" data-msg="Please enter at least 4 chars" value="{{ old('edad') }}"/>
-                <div class="validation"></div>
-              </div>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-6">
-              <div class="form-group">
-                <input type="date" name="fecnac" class="form-control" id="fecnac" placeholder="Fecha de Nacimiento" value="{{ old('fecnac') }}"/>
-                <div class="validation"></div>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <input type="text" class="form-control" name="telefono" id="telefono" placeholder="telefono" required value="{{ old('telefono') }}"/>
-              <div class="validation"></div>
-            </div>
-              <div class="col-xs-6 col-sm-6 col-md-6">
-                <label for="Genero">Genero</label>
-                <div class="form-group" required>
-                  <input type="radio" name="gender" value="H">Hombre<br>
-                  <input type="radio" name="gender" value="M">Mujer<br>
-                </div>
-              </div>
-              <div class="col-xs-6 col-sm-6 col-md-6">
-                <div class="form-group">
-                  <div class="g-recaptcha" data-sitekey="6LcRMGYUAAAAAAMG4Zutozq-isqtGhcoIntJLzF1"></div>
-                </div>
-            </div>
-            <div>
-              <img src="https://www.paypalobjects.com/webstatic/es_MX/mktg/logos-buttons/redesign/btn_8.png" alt="PayPal" />
-            </div>
-              <input name="producto" value="Suscripcion Competencia MaxEffortChallenge 2018" hidden>
-              <input name="precio" value=200.00 hidden>
-            <div class="text-center"><button type="submit" class="btn btn-skin btn-lg btn-block" id="submit-button">Registrarse</button></div>
-          </form>
-
-          </div>
-          <div class="panel panel-default">
-              <div class="panel-heading">Importante!!!</div>
-              Será redirigiado al Servidor PayPal en modo SandBox (pruebas)<br>
-              cuentas de usuario para hacer los pagos: <br>
-              usuario: runnermatrix@hotmail.com pass: runnermatrix <br>
-              usuario: israel_hp@hotmail.com pass: israelgarcia
-          </div>
-        </div>
-      </div>
-
-
-    </div>
   </section>
+  <div class="container">
+
+    <form class="well form-horizontal" action="{{ url('/registro')}}" method="post"  id="registroform">
+      {{ csrf_field() }}
+      <div class="panel panel-default">
+          <div class="panel-heading">Formulario de Registro</div>
+          @if ($errors->any())
+            <div class="alert alert-danger">
+              <ul>
+                @foreach ($errors->all() as $error)
+                  <li>{{$error}}</li>
+                @endforeach
+              </ul>
+            </div>
+            @endif
+<fieldset>
+
+<!-- Form Name -->
+
+<!-- Text input-->
+<div class="form-group">
+<label class="col-md-4 control-label">Tipo de Competencia</label>
+  <div class="col-md-4 selectContainer">
+  <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+  <select name="tcompetencia" class="form-control selectpicker">
+    <option value="">Seleccione una Competencia</option>
+<?php $grupo = ""; ?>
+@foreach($tcompetencia as $competencia)
+  <?php
+  if ($grupo <> $competencia->competencia) {
+    $grupo = "";
+  }
+  if ($grupo == "") {
+      $grupo = $competencia->competencia ?>
+      <optgroup label="{{$grupo}}">
+  <?php }  ?>
+      <option value="{{$competencia->nombreclave}}">{{$competencia->nivel}}</option>
+@endforeach
+</select>
+  </select>
+</div>
+</div>
+</div>
+<!--dtos-->
+<div class="form-group">
+  <label class="col-md-4 control-label">Nombre (s)</label>
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input  name="nombre" id="nombre" placeholder="Nombre" class="form-control"  type="text" required value="{{old('nombre')}}"/>
+    </div>
+  </div>
+</div>
+
+<!-- Text input-->
+
+<div class="form-group">
+  <label class="col-md-4 control-label" >Apellidos</label>
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input name="apellidos" id="apellidos" placeholder="Apellidos" class="form-control"  type="text" required value="{{old('apellidos')}}">
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Text input-->
+
+<div class="form-group">
+  <label class="col-md-4 control-label">Correo Electrónico</label>
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+  <input  name="email" id="email" placeholder="Correo Electrónico" class="form-control"  type="email" required value="{{ old('email') }}">
+    </div>
+  </div>
+</div>
+
+<!-- Text input-->
+
+<div class="form-group">
+  <label class="col-md-4 control-label" >Contraseña</label>
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input name="password" placeholder="Conraseña" class="form-control"  type="password">
+    </div>
+  </div>
+</div>
+
+<!-- Text input-->
+
+<div class="form-group">
+  <label class="col-md-4 control-label" >Confirme Contraseña</label>
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input name="password_confirmation" placeholder="Confirme Contraseña" class="form-control"  type="password">
+    </div>
+  </div>
+</div>
+
+<!-- Text input-->
+       <div class="form-group">
+  <label class="col-md-4 control-label">Edad</label>
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-hand-up"></i></span>
+  <input name="edad" placeholder="Edad" class="form-control"  type="number" value="{{ old('edad') }}" required>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label">Fecha de Nacimiento</label>
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+  <input name="fecnac" id="fecnac" class="form-control" type="date" value="{{ old('fecnac') }}" required>
+    </div>
+  </div>
+</div>
+<!-- Text input-->
+
+<div class="form-group">
+  <label class="col-md-4 control-label">No. Teléfono</label>
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+  <input name="telefono" id="telefono" placeholder="(993)" class="form-control" type="text" value="{{ old('telefono') }}" required/>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label">Género</label>
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"></span>
+        <input type="radio" name="gender" value="H">Hombre<br>
+        <input type="radio" name="gender" value="M">Mujer<br>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label">Video URL</label>
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-film"></i></span>
+  <input name="videourl" class="form-control" type="text" value="{{ old('videourl') }}">
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label"></label>
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <div class="g-recaptcha" data-sitekey="6LcRMGYUAAAAAAMG4Zutozq-isqtGhcoIntJLzF1"></div>
+    </div>
+  </div>
+</div>
+<!-- Select Basic -->
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label"></label>
+  <div class="col-md-4"><br>
+<button type="submit" class="btn btn-warning btn-block" > REGISTRARSE <span class="glyphicon glyphicon-send"></span></button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">Importante!!!</div>
+    Será redirigiado al Servidor PayPal en modo SandBox (pruebas)<br>
+    cuentas de usuario para hacer los pagos: <br>
+    usuario: runnermatrix@hotmail.com pass: runnermatrix <br>
+    usuario: israel_hp@hotmail.com pass: israelgarcia
+</div>
+</div>
+<!-- /.container -->
+
   <!-- /Section: contact -->
   <!-- Section: parallax 3 -->
   <section id="parallax3" class="home-section parallax text-light text-center" data-stellar-background-ratio="0.5">
