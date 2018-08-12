@@ -44,27 +44,18 @@
                 <label for="tcompetencia">Tipo de Competencia</label>
                 <select id="tcompetencia" name="tcompetencia" class="selectpicker">
                       <option value="">Seleccione una Competencia</option>
-                  <optgroup label="CrossFit">
-                    <option value="CrossBeginer">Principante</option>
-                    <option value="CrossInter">Intermedio</option>
-                    <option value="CrossRX">RX(Avanzado)</option>
-                  </optgroup>
-                  <optgroup label="Gymnastic">
-                    <option value="GymInter">Intermedio</option>
-                    <option value="GymRX">RX(Avanzado)</option>
-                  </optgroup>
-                  <optgroup label="Weightlifting">
-                    <option value="WeighInter">Intermedio</option>
-                    <option value="WeightRX">RX(Avanzado)</option>
-                  </optgroup>
-                  <optgroup label="Condition">
-                    <option value="ConditRX">RX</option>
-                    <option value="ConditRX">Avanzado</option>
-                    <option value="ConditBeginer">Principiante</option>
-                  </optgroup>
-                  <optgroup label="Bajar de Peso">
-                    <option value="lossweight">Bajar de Peso</option>
-                  </optgroup>
+                  <?php $grupo = ""; ?>
+                  @foreach($tcompetencia as $competencia)
+                    <?php
+                    if ($grupo <> $competencia->competencia) {
+                      $grupo = "";
+                    }
+                    if ($grupo == "") {
+                        $grupo = $competencia->competencia ?>
+                        <optgroup label="{{$grupo}}">
+                    <?php }  ?>                
+                        <option value="{{$competencia->nombreclave}}">{{$competencia->nivel}}</option>
+                  @endforeach
                 </select>
               </div>
             </div>

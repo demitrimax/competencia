@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\suscriptores;
+use App\tcompetencia;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\WelcomeUser;
 
@@ -71,8 +72,8 @@ class registroController extends Controller
    }
 
     public function index() {
-
-      return view('register'); // formulario de registro
+      $tcompetencia = tcompetencia::all();
+      return view('register')->with(compact('tcompetencia')); // formulario de registro
     }
 
     public function paypalpago(Request $request)
@@ -99,7 +100,7 @@ class registroController extends Controller
         'tcompetencia.required' => 'Tiene que seleccionar una competencia',
         'email.required' => 'El email es un dato requerido',
         'email.email' => 'Verifique el correo electronico',
-        'email.unique' => 'Ya existe un usuario registrado con ese correo eletronico',
+        'email.unique' => 'Ya existe un usuario registrado con ese correo eletronico, inicie sesión',
         'password.required' => 'Tiene que escribir una contraseña',
         'password.min' => 'La contraseña debe contener al menos 5 carácteres',
         'password.max' => 'La contraseña no debe pasar de 20 carácteres',
