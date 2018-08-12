@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\suscriptores;
+use Intervention\Image\ImageManager;
 
 class CompetidoresController extends Controller
 {
@@ -25,5 +27,22 @@ class CompetidoresController extends Controller
     public function index()
     {
         return view('competidor.dashboard');
+    }
+    public function avatarchange(Request $request)
+    {
+      //guardar la imagen en el sistema de archivos
+      $manager = new ImageManager;
+      $file = $request->file('avatarimg');
+      $path = public_path() . '/suscriptor/avatars/';
+      $filename = uniqid().$file->getClientOriginalName();
+      //cambiar el tamaño de la imagen
+      $image = $manager->make($file)->resize(400, 400)->save($path.$filename);
+      //$file->move($path,$filename);
+      //guardar el registro de la Imagen
+      $avatar = suscriptores::find($request->idcompetidor);
+      $avatar->avatar = 'suscriptor/avatars/'.$filename;
+      $avatar->save(); //INSERT
+
+      return back();
     }
 }

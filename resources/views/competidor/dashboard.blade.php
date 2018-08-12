@@ -21,8 +21,17 @@ class="profile-page"
           <div class="row justify-content-center">
             <div class="col-lg-3 order-lg-2">
               <div class="card-profile-image">
-                <a href="#">
-                  <img src="{{asset('argon/img/theme/team-4-800x800.jpg')}}" class="rounded-circle">
+                <a href="#" data-toggle="modal" data-target="#CambiaAvatar">
+                  <?php if (Auth::user()->avatar =="") {
+                    if (Auth::user()->genero == "H") { $ngen = rand(1,3);}
+                    if (Auth::user()->genero == "W") { $ngen = rand(4,6);}
+                    $avatarimg = 'img/avatars/avatar_'.$ngen.'.png';
+                    }
+                    else {
+                      $avatarimg = Auth::user()->avatar;
+                    }
+                   ?>
+                  <img src="{{asset($avatarimg)}}" class="rounded-circle" height="200">
                 </a>
               </div>
             </div>
@@ -58,9 +67,10 @@ class="profile-page"
             <div><i class="ni education_hat mr-2"></i>Tipo de Usuario:
               @if (Auth::user()->premium == 0)
                 Estándar.
-                <div>Porfavor realice su pago para acceder a las opciones premium.</div>
-                @elseif  (Auth::user()->premium == 0)
-                Premium
+                <p class="text-warning">Porfavor realice su pago para acceder a las opciones premium.</p><br>
+                  <button class="btn btn-1 btn-warning" type="button">Realice su pago</button></div>
+                @elseif  (Auth::user()->premium == 1)
+                <button class="btn btn-1 btn-primary" type="button">Premium</button>
               @endif
             </div>
           </div>
@@ -76,5 +86,29 @@ class="profile-page"
       </div>
     </div>
   </section>
-
+  <!-- Modal -->
+  <div class="modal fade" id="CambiaAvatar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <form method="post" action="competidor/avatarimg" enctype="multipart/form-data" >
+          {{ csrf_field() }}
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Imagen Avatar</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Agrege o cambie la imagen de su avatar.
+          <input type="file" name="avatarimg" class="form-control" accept="image/*">
+          <input type="hidden" name="idcompetidor" value="{{ Auth::user()->id }}">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
 @endsection

@@ -32,6 +32,7 @@ Route::prefix('competidor')->group(function() {
   Route::post('/login', 'Auth\CompetidoresLoginController@login')->name('competidor.login.submit');
   Route::get('/logout', 'Auth\CompetidoresLoginController@logout')->name('competidor.logout');
   Route::get('/','Auth\CompetidoresController@index')->name('competidor.dashboard');
+  Route::post('/avatarimg','Auth\CompetidoresController@avatarchange');
 });
 
 

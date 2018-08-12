@@ -24,7 +24,7 @@
   <header class="header-global">
     <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light">
       <div class="container">
-        <a class="navbar-brand mr-lg-5" href="../index.html">
+        <a class="navbar-brand mr-lg-5" href="{{url('/')}}">
           <img src="{{asset('img/maxeffortchallenge_white.png')}}">
         </a>
         <div class="navbar-collapse collapse" id="navbar_global">
