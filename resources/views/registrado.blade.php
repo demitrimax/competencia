@@ -13,7 +13,7 @@
               <p>Te acabas de suscribir correctamente a la competencia.</p>
               <p>En breves recibiras un correo eletronico confirmando tu suscripción.</p>
               <spam> Deberás recordar tu correo electronico {{$suscriptor->email}} y la contraseña que nos proporcionaste para poder iniciar sesión en la página.</spam><br>
-              <button href="{{ url('competidor/login')}}" class="btn btn-skin">Iniciar Sesión</button>
+              <a href="{{ url('competidor/login')}}" class="btn btn-skin">Iniciar Sesión</a>
             </div>
 
           </div>

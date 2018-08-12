@@ -201,16 +201,16 @@ class registroController extends Controller
       $suscriptor->save();
       //actualizar que ya es usuario premium porque hizo el pago
       //en esta parte hay que meterle mas seguridad
-
+      //aqui enviar email notificando el registro
+      Mail::to($suscriptor->email)
+            ->send(new WelcomeUser());
       return redirect('/suscriptcorrecto/'.$id);
     }
 
     public function UsuarioRegistrado ($id) {
       $suscriptor = suscriptores::findOrFail($id);
 
-      //aqui enviar email notificando el registro
-      Mail::to($suscriptor->email)
-            ->send(new WelcomeUser());
+
 
       return view('registrado')->with(compact('suscriptor'));
     }
