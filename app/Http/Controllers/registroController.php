@@ -79,66 +79,75 @@ class registroController extends Controller
 
     public function paypalpago(Request $request)
     {
-      //validadores
-      $rules = [
-        'nombre' => 'required|min:3|max:191',
-        'apellidos' => 'required|max:191',
-        'fecnac' => 'required',
-        'edad' => 'required|integer',
-        'gender' => 'required',
-        'telefono' => 'required',
-        'tcompetencia' => 'required',
-        'email' => 'required|email|unique:suscriptores',
-        'password' => 'required|min:5|max:15|confirmed',
-      ];
-      $mensajes = [
-        'nombre.required' => 'El nombre es datos requerido',
-        'nombre.min' => 'El nombre tiene que tener más de 2 letras',
-        'nombre.max' => 'El nombre no puede tener más de 190 letras',
-        'fecnac.required' => 'Es necesario la fecha de nacimiento',
-        'gender.required' => 'Es necesario seleccione el Genero',
-        'telefono.required' => 'El telefono es un dato requerido',
-        'tcompetencia.required' => 'Tiene que seleccionar una competencia',
-        'email.required' => 'El email es un dato requerido',
-        'email.email' => 'Verifique el correo electronico',
-        'email.unique' => 'Ya existe un usuario registrado con ese correo eletronico, inicie sesión',
-        'password.required' => 'Tiene que escribir una contraseña',
-        'password.min' => 'La contraseña debe contener al menos 5 carácteres',
-        'password.max' => 'La contraseña no debe pasar de 20 carácteres',
-        'password.confirmed' => 'Las contreñas no coinciden',
-      ];
-      $this->validate($request, $rules, $mensajes);
-      //verificar que el google captcha
 
-      //guardar los datos del usuario en la bd
-      $suscriptor = new suscriptores;
-      $suscriptor->nombre = $request->input('nombre');
-      $suscriptor->apellidos = $request->input('apellidos');
-      $suscriptor->fecnac = $request->input('fecnac');
-      $suscriptor->edad = $request->input('edad');
-      $suscriptor->genero = $request->input('gender');
-      $suscriptor->telefono = $request->input('telefono');
-      $suscriptor->tcompetencia = $request->input('tcompetencia');
-      $suscriptor->email = $request->input('email');
-      $suscriptor->password = bcrypt($request->input('password'));
-      $suscriptor->premium = 0;
-      $suscriptor->save();
-      //guardar el video que el usuario haya subido
-
-      $tipocompetencia = tcompetencia::where('nombreclave', $request->input('tcompetencia'))->first();
-      //dd($tipocompetencia);
-      if (($request->input('videourl'))==!null)
+      //si es por segunda vez que va a realizar el pago entonces no guardar en la bd
+      if ($request->input('segundavez') == null )
       {
-        $videourl = new compvideos;
-        $videourl->competidor = $suscriptor->id;
-        $videourl->videourl = $request->input('videourl');
-        $videourl->tcompetencia = $tipocompetencia->id;
-        $videourl->save();
+          //validadores
+
+          $rules = [
+            'nombre' => 'required|min:3|max:191',
+            'apellidos' => 'required|max:191',
+            'fecnac' => 'required',
+            'edad' => 'required|integer',
+            'gender' => 'required',
+            'telefono' => 'required',
+            'tcompetencia' => 'required',
+            'email' => 'required|email|unique:suscriptores',
+            'password' => 'required|min:5|max:15|confirmed',
+          ];
+          $mensajes = [
+            'nombre.required' => 'El nombre es datos requerido',
+            'nombre.min' => 'El nombre tiene que tener más de 2 letras',
+            'nombre.max' => 'El nombre no puede tener más de 190 letras',
+            'fecnac.required' => 'Es necesario la fecha de nacimiento',
+            'gender.required' => 'Es necesario seleccione el Genero',
+            'telefono.required' => 'El telefono es un dato requerido',
+            'tcompetencia.required' => 'Tiene que seleccionar una competencia',
+            'email.required' => 'El email es un dato requerido',
+            'email.email' => 'Verifique el correo electronico',
+            'email.unique' => 'Ya existe un usuario registrado con ese correo eletronico, inicie sesión',
+            'password.required' => 'Tiene que escribir una contraseña',
+            'password.min' => 'La contraseña debe contener al menos 5 carácteres',
+            'password.max' => 'La contraseña no debe pasar de 20 carácteres',
+            'password.confirmed' => 'Las contreñas no coinciden',
+          ];
+          $this->validate($request, $rules, $mensajes);
+          //verificar que el google captcha
+
+
+          //guardar los datos del usuario en la bd
+          $suscriptor = new suscriptores;
+          $suscriptor->nombre = $request->input('nombre');
+          $suscriptor->apellidos = $request->input('apellidos');
+          $suscriptor->fecnac = $request->input('fecnac');
+          $suscriptor->edad = $request->input('edad');
+          $suscriptor->genero = $request->input('gender');
+          $suscriptor->telefono = $request->input('telefono');
+          $suscriptor->tcompetencia = $request->input('tcompetencia');
+          $suscriptor->email = $request->input('email');
+          $suscriptor->password = bcrypt($request->input('password'));
+          $suscriptor->premium = 0;
+          $suscriptor->save();
+          //guardar el video que el usuario haya subido
+
+          $tipocompetencia = tcompetencia::where('nombreclave', $request->input('tcompetencia'))->first();
+          //dd($tipocompetencia);
+          if (($request->input('videourl'))==!null)
+          {
+            $videourl = new compvideos;
+            $videourl->competidor = $suscriptor->id;
+            $videourl->videourl = $request->input('videourl');
+            $videourl->tcompetencia = $tipocompetencia->id;
+            $videourl->save();
+          }
+          $id_suscriptor = $suscriptor->id;
+      }
+      if ($request->input('segundavez') == !null ) {
+        $id_suscriptor = $request->input('idcompetidor');
       }
 
 
-
-          $id_suscriptor = $suscriptor->id;
           $precio = $request->input('precio');
           $precio = 200;
           $precio = (int) $precio;

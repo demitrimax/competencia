@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\suscriptores;
 use Intervention\Image\ImageManager;
 use App\compvideos;
+use App\tcompetencia;
 use Auth;
 
 class CompetidoresController extends Controller
@@ -29,7 +30,8 @@ class CompetidoresController extends Controller
     public function index()
     {
         $videos = compvideos::where('competidor',Auth::user()->id)->get();
-        return view('competidor.dashboard')->with(compact('videos'));
+        $competencia = tcompetencia::where('nombreclave', Auth::user()->tcompetencia)->first();
+        return view('competidor.dashboard')->with(compact('videos','competencia'));
     }
     public function avatarchange(Request $request)
     {
@@ -45,6 +47,19 @@ class CompetidoresController extends Controller
       $avatar = suscriptores::find($request->idcompetidor);
       $avatar->avatar = 'suscriptor/avatars/'.$filename;
       $avatar->save(); //INSERT
+
+      return back();
+    }
+
+    public function videoupload (Request $request)
+    {
+      $videos = new compvideos;
+      $videos->competidor = $request->input('idcompetidor');
+      $videos->videourl = $request->input('videourl');
+      $videos->tcompetencia = $request->input('tcompetencia');
+      $videos->comentario = $request->input('comentario');
+      $videos->clasifica = $request->input('clasifica');
+      $videos->save();
 
       return back();
     }

@@ -21,6 +21,9 @@ class CreateCompvideosTable extends Migration
             $table->time('tiempo')->nullable();
             $table->integer('repeticiones')->nullable();
             $table->integer('peso')->nullable();
+            $table->text('comentario')->nullable();
+            $table->string('clasifica')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
