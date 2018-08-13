@@ -7,20 +7,28 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Max Effort Challenge</title>
+  <title>@yield('page-title', 'Max Effort Challenge')</title>
 
   <!-- css -->
-  <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-  <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-  <link href="css/nivo-lightbox.css" rel="stylesheet" />
-  <link href="css/nivo-lightbox-theme/default/default.css" rel="stylesheet" type="text/css" />
-  <link href="css/owl.carousel.css" rel="stylesheet" media="screen" />
-  <link href="css/owl.theme.css" rel="stylesheet" media="screen" />
-  <link href="css/flexslider.css" rel="stylesheet" />
-  <link href="css/animate.css" rel="stylesheet" />
-  <link href="css/style.css" rel="stylesheet">
-  <link href="color/default.css" rel="stylesheet">
-  <link rel="stylesheet" href="leaflet/leaflet.css" />
+
+  <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+  <link href="{{ asset('font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
+
+  <!--<link href="{{ asset('css/nivo-lightbox.css" rel="stylesheet') }}" />
+  <link href="{{ asset('css/nivo-lightbox-theme/default/default.css') }}" rel="stylesheet" type="text/css" />-->
+<link href="{{asset('css/nivolightbox/nivo-lightbox.css')}}" rel="stylesheet" type="text/css">
+<link href="{{asset('css/nivolightbox/themes/default/default.css')}}" rel="stylesheet" type="text/css">
+
+  <!--<link href="{{ asset('css/owl.carousel.css') }}" rel="stylesheet" media="screen" />
+  <link href="{{asset('css/owl.theme.css')}}" rel="stylesheet" media="screen" />
+-->
+  <link rel="stylesheet" href="{{asset('css/owlcarrusel/owl.carousel.min.css')}}" />
+  <link href="{{asset('css/owlcarrusel/owl.theme.default.min.css')}}" rel="stylesheet" media="screen" />
+
+  <link href="{{asset('css/flexslider.css')}}" rel="stylesheet" />
+  <link href="{{asset('css/animate.css')}}" rel="stylesheet" />
+  <link href="{{asset('css/style.css')}}" rel="stylesheet" />
+  <link href="{{asset('color/default.css')}}" rel="stylesheet" />
   @yield('head-script')
 
 </head>
@@ -66,7 +74,7 @@
           <div class="col-md-2 mob-logo">
             <div class="row">
               <div class="site-logo">
-                <a href="index.html"><img src="img/maxeffortchallenge.png" alt="" /></a>
+                <a href="{{url('/')}}"><img src="{{asset('img/maxeffortchallenge2.png')}}" alt="" /></a>
               </div>
             </div>
           </div>
@@ -83,7 +91,7 @@
               <!-- Collect the nav links, forms, and other content for toggling -->
               <div class="collapse navbar-collapse" id="menu">
                 <ul class="nav navbar-nav navbar-right">
-                  <li class="active"><a href="#intro">Principal</a></li>
+                  <li class="active"><a href="{{ url('/')}}">Principal</a></li>
                   <li><a href="#about">Tabla de Posiciones</a></li>
                   <li><a href="#service">Categorias</a></li>
                   <li><a href="#works">Estándar de Movimiento</a></li>
@@ -95,6 +103,15 @@
                       <li><a class="external" href="#">Historia</a></li>
                       <li><a class="external" href="#">Mas Retos</a></li>
                       <li><a class="external" href="#">Programaciones</a></li>
+                      @auth
+                          <li><a class="external" href=" {{ route('logout') }}" onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">Cerrar Sesión</a></li>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+                      @else
+                          <li><a href="{{ url('/admin') }}">Login</a></li>
+                      @endauth
                     </ul>
                   </li>
                 </ul>
@@ -133,12 +150,6 @@
             </div>
             <p>&copy;Veritas Software. Todos los derechos reservados 2018</p>
             <div class="credits">
-              <!--
-                All the links in the footer should remain intact.
-                You can delete the links only if you purchased the pro version.
-                Licensing information: https://bootstrapmade.com/license/
-                Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Valera
-              -->
               Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
             </div>
           </div>
@@ -148,26 +159,38 @@
   </footer>
 
   <!-- Core JavaScript Files -->
-  <script src="js/jquery.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery.sticky.js"></script>
-  <script src="js/slippry.min.js"></script>
-  <script src="js/jquery.flexslider-min.js"></script>
-  <script src="js/morphext.min.js"></script>
-  <script src="js/jquery.mb.YTPlayer.js"></script>
-  <script src="js/jquery.easing.min.js"></script>
-  <script src="js/jquery.scrollTo.js"></script>
-  <script src="js/jquery.appear.js"></script>
-  <script src="js/stellar.js"></script>
-  <script src="js/gmap.js"></script>
-  <script src="js/wow.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/nivo-lightbox.min.js"></script>
-  <script src="js/jquery.nicescroll.min.js"></script>
-  <script src="js/custom.js"></script>
+  <script src="{{asset('js/jquery.min.js')}}"></script>
+  <script src="{{asset('js/bootstrap.min.js')}}"></script>
+  <script src="{{asset('js/jquery.sticky.js')}}"></script>
+  <script src="{{asset('js/slippry.min.js')}}"></script>
+  <script src="{{asset('js/jquery.flexslider-min.js')}}"></script>
+  <script src="{{asset('js/morphext.min.js')}}"></script>
+  <script src="{{asset('js/jquery.mb.YTPlayer.js')}}"></script>
+  <script src="{{asset('js/jquery.easing.min.js')}}"></script>
+  <script src="{{asset('js/jquery.scrollTo.js')}}"></script>
+  <script src="{{asset('js/jquery.appear.js')}}"></script>
+  <script src="{{asset('js/stellar.js')}}"></script>
+  <script src="{{asset('js/gmap.js')}}"></script>
+  <script src="{{asset('js/wow.min.js')}}"></script>
+  <!--<script src="{{asset('js/owl.carousel.min.js')}}"></script>-->
+
+  <script src="{{asset('js/owlcarrusel/owl.carousel.min.js')}}"></script>
+
+  <!-- <script src="{{asset('js/nivo-lightbox.min.js')}}"></script>-->
+  <script src="{{asset('js/nivolightbox/nivo-lightbox.js')}}"></script>
+  <script src="{{asset('js/jquery.nicescroll.min.js')}}"></script>
+  <script src="{{asset('js/custom.js')}}"></script>
   @yield('scripts')
+  @yield('braintree-script')
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123515722-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-
+  gtag('config', 'UA-123515722-1');
+</script>
 </body>
 
 </html>

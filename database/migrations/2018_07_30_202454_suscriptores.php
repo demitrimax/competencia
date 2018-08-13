@@ -20,12 +20,18 @@ class Suscriptores extends Migration
             $table->string('apellidos');
             $table->date('fecnac');
             $table->integer('edad');
-            $table->enum('sexo',['hombre','mujer']);
+            $table->enum('genero',['H','M']);
             $table->string('telefono');
-            $table->enum('clasificacion',['Principiante','Intermedio','RX']);
+            $table->string('tcompetencia');
             $table->string('email')->unique();
             $table->string('password');
             $table->boolean('premium');
+            $table->string('paypalemail')->nullable();
+            $table->integer('pago')->nullable();
+            $table->text('paypaldatos')->nullable();
+            $table->string('avatar')->nullable();
+            $table->text('bio')->nullable();
+            $table->rememberToken();
             $table->timestamps();
         });
     }

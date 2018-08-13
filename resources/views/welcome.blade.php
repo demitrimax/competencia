@@ -6,7 +6,7 @@
     <div class="home-video-wrapper">
 
       <div class="homevideo-container">
-        <div id="P1" class="bg-player" style="display:block; margin: auto; background: rgba(0,0,0,0.5)" data-property="{videoURL:'https://www.youtube.com/watch?v=cEVzMu-ob7s&t=49',containment:'.homevideo-container', quality: 'hd720', showControls: false, autoPlay:true, mute:true, startAt:0, opacity:1}"></div>
+        <div id="P1" class="bg-player" style="display:block; margin: auto; background: rgba(0,0,0,0.5)" data-property="{videoURL:'https://www.youtube.com/watch?v=cEVzMu-ob7s&t=49',containment:'.homevideo-container', quality: 'hd720', showControls: false, autoPlay:true, mute:true, startAt:49, opacity:1}"></div>
       </div>
       <div class="overlay">
         <div class="text-center video-caption">
@@ -35,7 +35,7 @@
           <div class="section-heading text-center">
             <h2 class="h-bold">Que es Max Effort Challenge</h2>
             <div class="divider-header"></div>
-            <p>Lorem ipsum dolor sit amet, agam perfecto sensibus usu at duo ut iriure.</p>
+            <p>La competencia Max Effort Challenge incluye diferentes partes.</p>
           </div>
         </div>
       </div>
@@ -45,7 +45,6 @@
 
   <div class="text-center">
     <div class="container">
-
 
       <div class="row">
         <div class="col-xs-6 col-sm-3 col-md-3">
@@ -81,6 +80,17 @@
       </div>
     </div>
   </div>
+  <div class="text-center">
+    <div class="container">
+    <div class="wow bounceInUp" data-wow-offset="0" data-wow-delay="1s">
+      <div class="margintop-30">
+        <a href="{{ url('/registro') }}" class="btn btn-skin" id="btn-scroll">Resgistrate Aquí</a>
+        <a href="{{ url('/competidor/login') }}" class="btn btn-skin" id="btn-scroll">Inicia Sesión</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 </section>
 <!-- /Section: about -->
 
@@ -104,9 +114,9 @@
       <div class="col-lg-8 col-lg-offset-2">
         <div class="wow flipInY" data-wow-offset="0" data-wow-delay="0.4s">
           <div class="section-heading text-center">
-            <h2 class="h-bold">Clasificaciones</h2>
+            <h2 class="h-bold">Entradas del Blog</h2>
             <div class="divider-header"></div>
-            <p>La competencia tiene tres grandes clasificaciones para la competencia.</p>
+            <p>Algunos articulos de interes.</p>
           </div>
         </div>
       </div>
@@ -118,54 +128,24 @@
     <div class="container">
 
       <div class="row">
+        @foreach($entradas as $entrada)
         <div class="col-xs-6 col-sm-3 col-md-3">
           <div class="wow fadeInLeft" data-wow-delay="0.2s">
             <div class="service-box">
               <div class="service-icon">
-                <span class="pe-7s-user pe-5x"></span>
+                <img src="{{ url('storage/'.$entrada->image) }}" alt="post image" class="image-responsive" style="width:150px;">
               </div>
               <div class="service-desc">
-                <h5>Principante</h5>
+                <h5>{{$entrada->title}}</h5>
                 <p>
-                  Ad denique euripidis signiferumque vim, iusto admodum quo cu. No tritani neglegentur mediocritatem duo.
+                  {{$entrada->excerpt}}
                 </p>
-                <a href="#" class="btn btn-skin">Learn more</a>
+                <a href="{{ url('entrada/'.$entrada->id)}}" class="btn btn-skin">Articulo Completo</a>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-xs-6 col-sm-3 col-md-3">
-          <div class="wow fadeInUp" data-wow-delay="0.2s">
-            <div class="service-box">
-              <div class="service-icon">
-                <span class="pe-7s-user pe-5x"></span>
-              </div>
-              <div class="service-desc">
-                <h5>Intermedio</h5>
-                <p>
-                  Ad denique euripidis signiferumque vim, iusto admodum quo cu. No tritani neglegentur mediocritatem duo.
-                </p>
-                <a href="#" class="btn btn-skin">Learn more</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-3 col-md-3">
-          <div class="wow fadeInUp" data-wow-delay="0.2s">
-            <div class="service-box">
-              <div class="service-icon">
-                <span class="pe-7s-note pe-5x"></span>
-              </div>
-              <div class="service-desc">
-                <h5>RX (Avanazado)</h5>
-                <p>
-                  Ad denique euripidis signiferumque vim, iusto admodum quo cu. No tritani neglegentur mediocritatem duo.
-                </p>
-                <a href="#" class="btn btn-skin">Learn more</a>
-              </div>
-            </div>
-          </div>
-        </div>
+        @endforeach
 
       </div>
     </div>
@@ -180,37 +160,37 @@
       <div class="col-md-3">
         <div class="align-center color-white txt-shadow">
           <div class="icon">
+            <i class="pe-7s-users pe-5x"></i>
+          </div>
+          <strong id="counter-coffee" class="number">242</strong><br />
+          <span class="text">Competidores</span>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="align-center color-white txt-shadow">
+          <div class="icon">
+            <i class="pe-7s-gym pe-5x"></i>
+          </div>
+          <strong id="counter-music" class="number">229</strong> Kg<br />
+          <span class="text">Mejor Peso</span>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="align-center color-white txt-shadow">
+          <div class="icon">
             <i class="pe-7s-stopwatch pe-5x"></i>
           </div>
-          <strong id="counter-coffee" class="number">1142</strong><br />
-          <span class="text">Minutes</span>
+          <strong id="counter-clock" class="number">451</strong> Min<br />
+          <span class="text">Menor tiempo</span>
         </div>
       </div>
       <div class="col-md-3">
         <div class="align-center color-white txt-shadow">
           <div class="icon">
-            <i class="pe-7s-music pe-5x"></i>
+            <i class="pe-7s-refresh-2 pe-5x"></i>
           </div>
-          <strong id="counter-music" class="number">229</strong><br />
-          <span class="text">Tracks</span>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="align-center color-white txt-shadow">
-          <div class="icon">
-            <i class="pe-7s-coffee pe-5x"></i>
-          </div>
-          <strong id="counter-clock" class="number">451</strong><br />
-          <span class="text">Cokes</span>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="align-center color-white txt-shadow">
-          <div class="icon">
-            <i class="pe-7s-cup pe-5x"></i>
-          </div>
-          <strong id="counter-heart" class="number">112</strong><br />
-          <span class="text">Awwards</span>
+          <strong id="counter-heart" class="number">78</strong><br />
+          <span class="text">Más repeticiones</span>
         </div>
       </div>
     </div>
@@ -225,9 +205,9 @@
       <div class="col-lg-8 col-lg-offset-2">
         <div class="wow flipInY" data-wow-offset="0" data-wow-delay="0.4s">
           <div class="section-heading text-center">
-            <h2 class="h-bold">Portfolio</h2>
+            <h2 class="h-bold">IMAGENES</h2>
             <div class="divider-header"></div>
-            <p>Lorem ipsum dolor sit amet, agam perfecto sensibus usu at duo ut iriure.</p>
+            <p>Algunas imagenes...</p>
           </div>
         </div>
       </div>
@@ -240,14 +220,15 @@
       <div class="col-sm-12 col-md-12 col-lg-12">
         <div class="wow bounceInUp" data-wow-delay="0.4s">
           <div id="owl-works" class="owl-carousel">
-            <div class="item"><a href="img/works/1.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg"><img src="img/works/1.jpg" class="img-responsive" alt="img"></a></div>
-            <div class="item"><a href="img/works/2.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/2@2x.jpg"><img src="img/works/2.jpg" class="img-responsive " alt="img"></a></div>
-            <div class="item"><a href="img/works/3.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/3@2x.jpg"><img src="img/works/3.jpg" class="img-responsive " alt="img"></a></div>
-            <div class="item"><a href="img/works/4.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/4@2x.jpg"><img src="img/works/4.jpg" class="img-responsive " alt="img"></a></div>
-            <div class="item"><a href="img/works/5.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/5@2x.jpg"><img src="img/works/5.jpg" class="img-responsive " alt="img"></a></div>
-            <div class="item"><a href="img/works/6.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/6@2x.jpg"><img src="img/works/6.jpg" class="img-responsive " alt="img"></a></div>
-            <div class="item"><a href="img/works/7.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/7@2x.jpg"><img src="img/works/7.jpg" class="img-responsive " alt="img"></a></div>
-            <div class="item"><a href="img/works/8.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/8@2x.jpg"><img src="img/works/8.jpg" class="img-responsive " alt="img"></a></div>
+            @foreach($carrusel as $imagen)
+            <?php
+            $path = 'storage/'.dirname($imagen->imagen).'/thumbs/';
+            $path = str_replace('\\','/',$path);
+            $nombre = basename($imagen->imagen);
+            $thumbail = $path.$nombre;
+            ?>
+            <div class="item"><a href="{{'storage/'.$imagen->imagen}}" title="{{$imagen->descripcion}}" data-lightbox-gallery="gallery1" data-lightbox-hidpi="{{'storage/'.$imagen->imagen}}"><img src="{{ $thumbail }}" class="img-responsive" alt="img"></a></div>
+            @endforeach
           </div>
         </div>
       </div>
@@ -264,18 +245,14 @@
       <div class="col-md-12">
         <div class="testimonialslide clearfix flexslider">
           <ul class="slides">
+            @foreach ($motivador as $motivadora)
             <li>
               <blockquote>
-                Usu ei porro deleniti similique, per no consetetur necessitatibus. Ut sed augue docendi alienum, ex oblique scaevola inciderint pri, unum movet cu cum. Et cum impedit epicuri
+                {{ $motivadora->frase }}
               </blockquote>
-              <h4>Daniel Dan <span>&#8213; MA System</span></h4>
+              <h4>{{ $motivadora->autor }}</h4>
             </li>
-            <li>
-              <blockquote>
-                Usu ei porro deleniti similique, per no consetetur necessitatibus. Ut sed augue docendi alienum, ex oblique scaevola inciderint pri, unum movet cu cum. Et cum impedit epicuri
-              </blockquote>
-              <h4>Mark Wellbeck <span>&#8213; AC Software </span></h4>
-            </li>
+            @endforeach
           </ul>
         </div>
       </div>
@@ -288,29 +265,5 @@
 
 <!-- /Section: contact -->
 
-<!-- google map -->
-<div id="map-btn1-div">
-  <a id="map-btn1" class="gmap-btn close-map-button btn-show" href="#map">
-  Click para abrir el mapa
-  </a>
-</div>
-<a id="map-btn2" class="btn btn-skin btn-lg btn-noradius gmap-btn close-map-button btn-hide" href="#map" title="Close google map" data-toggle="tooltip" data-placement="top">
-Prolongación de Mina #100, Colonia El Recreo Villahermoa, Tabasco
-</a>
 
-<!-- google map -->
-<section id="map" class="close-map">
-  <div id="mapid"></div>
-</section>
-<!-- /google map -->
-@endsection
-@section('scripts')
-<!-- <script src="leaflet/leaflet.js"></script> -->
-<script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
- integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
- crossorigin=""></script>
-
-<script>
-var mapalef = L.map('mapid').setView([51.505, -0.09], 13);
-</script>
 @endsection

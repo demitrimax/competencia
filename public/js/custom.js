@@ -71,6 +71,12 @@
     itemsTablet: [768, 5],
     itemsTabletSmall: [550, 2],
     itemsMobile: [480, 2],
+    
+    autoplay:true,
+    loop:true,
+    margin:10,
+    autoplayTimeout:1000,
+    autoplayHoverPause:true,
   });
 
   //nivo lightbox
