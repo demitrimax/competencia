@@ -103,6 +103,7 @@
                       <li><a class="external" href="#">Historia</a></li>
                       <li><a class="external" href="#">Mas Retos</a></li>
                       <li><a class="external" href="#">Programaciones</a></li>
+                      <li><a class="external" href="{{url('competidor/login')}}">Inicie Sesión (Competidor)</a></li>
                       @auth
                           <li><a class="external" href=" {{ route('logout') }}" onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">Cerrar Sesión</a></li>
@@ -110,7 +111,7 @@
                                             @csrf
                                         </form>
                       @else
-                          <li><a href="{{ url('/admin') }}">Login</a></li>
+                          <li><a href="{{ url('/admin') }}">Inicie Sesión (Administrador)</a></li>
                       @endauth
                     </ul>
                   </li>

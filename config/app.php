@@ -163,6 +163,8 @@ return [
         //'Netshell\Paypal\PaypalServiceProvider',
         Laravel\Cashier\CashierServiceProvider::class,
 
+        Merujan99\LaravelVideoEmbed\Providers\LaravelVideoEmbedServiceProvider::class,
+
     ],
 
     /*
@@ -212,6 +214,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         //'Paypal' => 'Netshell\Paypal\Facades\Paypal',
+        'LaravelVideoEmbed' => Merujan99\LaravelVideoEmbed\Facades\LaravelVideoEmbed::class,
 
     ],
 

@@ -17,7 +17,7 @@ class CreateTcompetenciasTable extends Migration
             $table->increments('id');
             $table->string('competencia');
             $table->string('nivel');
-            $table->string('nombreclave')
+            $table->string('nombreclave');
             $table->string('coach')->nullable();
             $table->integer('costo')->nullable();
             $table->timestamps();

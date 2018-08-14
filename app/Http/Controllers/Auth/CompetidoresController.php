@@ -9,6 +9,8 @@ use Intervention\Image\ImageManager;
 use App\compvideos;
 use App\tcompetencia;
 use Auth;
+use RicardoFiorani\Matcher\VideoServiceMatcher;
+
 
 class CompetidoresController extends Controller
 {

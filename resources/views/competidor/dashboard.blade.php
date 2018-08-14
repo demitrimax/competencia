@@ -3,17 +3,17 @@
 class="profile-page"
 @endsection
 @section('content')
-  <section class="section-profile-cover section-shaped my-0">
-    <div class="shape shape-style-1 shape-primary shape-skew alpha-4">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </section>
+<section class="section-profile-cover section-shaped my-0">
+  <div class="shape shape-style-1 shape-primary shape-skew alpha-4">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</section>
   <section class="section section-skew">
     <div class="container">
       <div class="card card-profile shadow mt--300">
@@ -41,9 +41,9 @@ class="profile-page"
               <div class="card-profile-actions py-4 mt-lg-0">
                 @if (Auth::user()->premium == 1)
                 <a href="#" class="btn btn-sm btn-info mr-4" data-toggle="modal" data-target="#AgregarVideo"><i class="fa fa-youtube-play" aria-hidden="true"></i>
-Video</a>
+Sube tu Video</a>
                 @endif
-                <a href="#" class="btn btn-sm btn-default float-right">Message</a>
+                <a href="#" class="btn btn-sm btn-default float-right">Mensajes</a>
               </div>
             </div>
             <div class="col-lg-4 order-lg-1">
@@ -95,17 +95,15 @@ Video</a>
                    <div class="col">
                      <span>
                        <?php
-                          $url = $video->videourl;
-                          preg_match('/[\\?\\&]v=([^\\?\\&]+)/', $url, $matches);
-                          //dd($matches);
-                          $idvideo = $matches[1];
+                          echo LaravelVideoEmbed::parse($video->videourl);
                         ?>
-                       <iframe width="250" height="150" src="https://www.youtube.com/embed/{{$idvideo}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></span>
+                       </span>
                    </div>
                    <div class="col">
-                     <span><div class="alert alert-primary" role="alert">
-    <strong>Fecha de Carga</strong> {{$video->created_at}}
-</div></span>
+                     <span>
+                         <strong>Fecha de Carga</strong> {{$video->created_at}}
+                      </span><br>
+
                    </div>
                  </div>
 
@@ -200,7 +198,7 @@ Video</a>
         <div class="modal-body">
           Agregue el URL de su video.
           <div class="form-group">
-            <input type="text" class="form-control" id="videourl" name="videourl" placeholder="youtube">
+            <input type="url" class="form-control" id="videourl" name="videourl" placeholder="youtube">
             <textarea class="form-control" id="comentariovideo" rows="3" name="comentario" placeholder="Escriba algun comentario del video (opcional)"></textarea>
             Seleccione la Clasificación a Calificar:<br>
             <select class="selectpicker" name="clasifica">
