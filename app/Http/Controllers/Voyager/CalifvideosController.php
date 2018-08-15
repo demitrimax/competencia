@@ -20,10 +20,10 @@ class CalifvideosController extends Controller
         return Voyager::view('voyager::compvideos.browse')->with(compact('allvideos'));
     }
 
-    public function califica(Request $request)
+    public function show(Request $request, $id)
     {
-      $vid = compvideos::find($request->input('idvideo'));
-      return Voyaer::view('voyager::compvideos.califica');
+      $vid = compvideos::findOrFail($id);
+      return Voyager::view('voyager::compvideos.califica')->with(compact('vid'));
     }
 
 

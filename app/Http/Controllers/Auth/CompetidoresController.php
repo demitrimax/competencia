@@ -31,7 +31,7 @@ class CompetidoresController extends Controller
      */
     public function index()
     {
-        $videos = compvideos::where('id_competidor',Auth::user()->id)->get();
+        $videos = compvideos::where('suscriptor_id',Auth::user()->id)->get();
         $competencia = tcompetencia::where('nombreclave', Auth::user()->tcompetencia)->first();
         return view('competidor.dashboard')->with(compact('videos','competencia'));
     }
@@ -56,9 +56,9 @@ class CompetidoresController extends Controller
     public function videoupload (Request $request)
     {
       $videos = new compvideos;
-      $videos->id_competidor = Auth::user()->id;
+      $videos->suscriptor_id = Auth::user()->id;
       $videos->videourl = $request->input('videourl');
-      $videos->id_tcompetencia = $request->input('tcompetencia');
+      $videos->tcompetencia_id = $request->input('tcompetencia');
       $videos->comentario = $request->input('comentario');
       $videos->clasifica = $request->input('clasifica');
       $videos->save();

@@ -8,6 +8,6 @@ class tcompetencia extends Model
 {
     //
     public function compvideos() {
-      return $this->hasMany(compvideos::class,'id_tcompetencia');
+      return $this->hasMany(compvideos::class,'tcompetencia_id');
     }
 }

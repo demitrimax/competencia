@@ -32,7 +32,7 @@
                             @foreach($allvideos as $key => $video)
                               <tr>
                                       <td>{{$key+1}}</td>
-                                      <td><a href="#">{{$video->suscriptores->nombre." ". $video->suscriptores->apellidos}}<a></td>
+                                      <td><a href="{{url('admin/compvideos/'.$video->id)}}">{{$video->suscriptores->nombre." ". $video->suscriptores->apellidos}}<a></td>
                                       <td>{{$video->tcompetencia->competencia."-".$video->tcompetencia->nivel}}</td>
                                       <td>{{$video->clasifica}}</td>
                                       <td>7.5</td>

@@ -16,7 +16,9 @@
         </div>
       </div>
     </div>
-    <img src="{{ url('storage/'.$lapagina->image)}}" class="image-responsive">
+    @if($lapagina->image ==!null)
+    <img src="{{ url('storage/'.$lapagina->image)}}" class="image-responsive centered">
+  @endif
   </div>
 </section>
 <section>

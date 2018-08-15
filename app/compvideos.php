@@ -13,10 +13,10 @@ class compvideos extends Model
 
     public function suscriptores()
     {
-        return $this->belongsTo(suscriptores::class,'id_competidor');
+        return $this->belongsTo(suscriptores::class,'suscriptor_id');
     }
     public function tcompetencia()
     {
-        return $this->belongsTo(tcompetencia::class,'id_tcompetencia');
+        return $this->belongsTo(tcompetencia::class,'tcompetencia_id');
     }
 }

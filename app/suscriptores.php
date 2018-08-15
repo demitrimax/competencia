@@ -30,6 +30,6 @@ class suscriptores extends Authenticatable
    protected $dates = ['deleted_at'];
 
    public function compvideos() {
-     return $this->hasMany(compvideos::class,'id_competidor');
+     return $this->hasMany(compvideos::class,'suscriptor_id');
    }
 }
