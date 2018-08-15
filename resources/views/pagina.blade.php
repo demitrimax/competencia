@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('page-title')
-{{ $lapagina->title }}
+{{ $lapagina->title }} | Max Effort Challenge
 @endsection
 @section('content')
 <section id="about" class="home-section color-dark bg-white">

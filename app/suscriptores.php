@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class suscriptores extends Authenticatable
 {
@@ -25,4 +26,6 @@ class suscriptores extends Authenticatable
    protected $hidden = [
        'password', 'remember_token',
    ];
+   use SoftDeletes;
+   protected $dates = ['deleted_at'];
 }
