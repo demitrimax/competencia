@@ -13,6 +13,7 @@
 
 Route::get('/', 'inicioController@welcome');
 Route::get('/entrada/{id}', 'inicioController@entrada');
+Route::get('/pagina/{id}', 'inicioController@paginafija');
 Route::fallback('inicioController@notFound');
 
 Auth::routes();

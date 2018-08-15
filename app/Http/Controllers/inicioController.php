@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\post;
 use App\motivadora;
 use App\carrusel;
+use App\pages;
 use Intervention\Image\ImageManager;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Collection;
@@ -49,5 +50,10 @@ class inicioController extends Controller
 
     public function notfound() {
       return view('notfound');
+    }
+    public function paginafija($id)
+    {
+      $lapagina = pages::findOrFail($id);
+      return view('pagina')->with(compact('lapagina'));
     }
 }

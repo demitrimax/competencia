@@ -100,7 +100,7 @@
                     <ul class="dropdown-menu">
                       <li><a class="external" href="#">Que es Max Effort Challenge</a></li>
                       <li><a class="external" href="{{ url('/registro') }}">Registrarse</a></li>
-                      <li><a class="external" href="#">Historia</a></li>
+                      <li><a class="external" href="{{ url('/pagina/2') }}">Historia</a></li>
                       <li><a class="external" href="#">Mas Retos</a></li>
                       <li><a class="external" href="#">Programaciones</a></li>
                       <li><a class="external" href="{{url('competidor/login')}}">Inicie Sesión (Competidor)</a></li>
