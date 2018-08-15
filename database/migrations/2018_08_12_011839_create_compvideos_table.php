@@ -15,9 +15,11 @@ class CreateCompvideosTable extends Migration
     {
         Schema::create('compvideos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('competidor');
+            $table->integer('suscriptor_id')->unsigned();
+              $table->foreign('suscriptor_id')->references('id')->on('suscriptores');
             $table->text('videourl');
-            $table->integer('tcompetencia');
+            $table->integer('tcompetencia_id')->unsigned();
+              $table->foreign('tcompetencia_id')->references('id')->on('tcompetencias');
             $table->time('tiempo')->nullable();
             $table->integer('repeticiones')->nullable();
             $table->integer('peso')->nullable();

@@ -28,4 +28,8 @@ class suscriptores extends Authenticatable
    ];
    use SoftDeletes;
    protected $dates = ['deleted_at'];
+
+   public function compvideos() {
+     return $this->hasMany(compvideos::class,'id_competidor');
+   }
 }

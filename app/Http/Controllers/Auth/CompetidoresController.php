@@ -31,7 +31,7 @@ class CompetidoresController extends Controller
      */
     public function index()
     {
-        $videos = compvideos::where('competidor',Auth::user()->id)->get();
+        $videos = compvideos::where('id_competidor',Auth::user()->id)->get();
         $competencia = tcompetencia::where('nombreclave', Auth::user()->tcompetencia)->first();
         return view('competidor.dashboard')->with(compact('videos','competencia'));
     }
@@ -46,7 +46,7 @@ class CompetidoresController extends Controller
       $image = $manager->make($file)->resize(400, 400)->save($path.$filename);
       //$file->move($path,$filename);
       //guardar el registro de la Imagen
-      $avatar = suscriptores::find($request->idcompetidor);
+      $avatar = suscriptores::find(Auth::user()->id);
       $avatar->avatar = 'suscriptor/avatars/'.$filename;
       $avatar->save(); //INSERT
 
@@ -56,9 +56,9 @@ class CompetidoresController extends Controller
     public function videoupload (Request $request)
     {
       $videos = new compvideos;
-      $videos->competidor = $request->input('idcompetidor');
+      $videos->id_competidor = Auth::user()->id;
       $videos->videourl = $request->input('videourl');
-      $videos->tcompetencia = $request->input('tcompetencia');
+      $videos->id_tcompetencia = $request->input('tcompetencia');
       $videos->comentario = $request->input('comentario');
       $videos->clasifica = $request->input('clasifica');
       $videos->save();

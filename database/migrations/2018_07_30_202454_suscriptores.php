@@ -31,6 +31,7 @@ class Suscriptores extends Migration
             $table->text('paypaldatos')->nullable();
             $table->string('avatar')->nullable();
             $table->text('bio')->nullable();
+            $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();
         });
