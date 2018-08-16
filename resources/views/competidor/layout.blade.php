@@ -98,6 +98,13 @@
   <script src="{{asset('argon/vendor/headroom/headroom.min.js')}}"></script>
   <!-- Argon JS -->
   <script src="{{asset('argon/js/argon.js?v=1.0.0')}}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-123515722-1');
+  </script>
 </body>
 
 </html>

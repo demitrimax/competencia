@@ -143,8 +143,7 @@
 
               <ul class="team-social">
                 <li class="social-facebook"><a href="https://www.facebook.com/maxeffort.cerino" tarjet="_blank"><i class="fa fa-facebook"></i></a></li>
-                <li class="social-twitter"><a href="#" tarjet="_blank"><i class="fa fa-twitter"></i></a></li>
-                <li class="social-google"><a href="#" tarjet="_blank"><i class="fa fa-google-plus"></i></a></li>
+                <li class="social-twitter"><a href="https://twitter.com/Maxeffortchall1" tarjet="_blank"><i class="fa fa-twitter"></i></a></li>
                 <li class="social-dribbble"><a href="https://www.instagram.com/maxeffortchallenge/" tarjet="_blank"><i class="fa fa-instagram"></i></a></li>
               </ul>
 

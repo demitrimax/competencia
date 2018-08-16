@@ -30,19 +30,19 @@
         <div class="navbar-collapse collapse" id="navbar_global">
           <ul class="navbar-nav align-items-lg-center ml-lg-auto">
             <li class="nav-item">
-              <a class="nav-link nav-link-icon" href="https://www.facebook.com/" target="_blank" data-toggle="tooltip" title="Like en Facebook">
+              <a class="nav-link nav-link-icon" href="https://www.facebook.com/maxeffort.cerino" target="_blank" data-toggle="tooltip" title="Like en Facebook">
                 <i class="fa fa-facebook-square"></i>
                 <span class="nav-link-inner--text d-lg-none">Facebook</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-link-icon" href="https://www.instagram.com/" target="_blank" data-toggle="tooltip" title="Siguenos en Instagram">
+              <a class="nav-link nav-link-icon" href="https://www.instagram.com/maxeffortchallenge/" target="_blank" data-toggle="tooltip" title="Siguenos en Instagram">
                 <i class="fa fa-instagram"></i>
                 <span class="nav-link-inner--text d-lg-none">Instagram</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-link-icon" href="https://twitter.com/" target="_blank" data-toggle="tooltip" title="Siguenos en Twitter">
+              <a class="nav-link nav-link-icon" href="https://twitter.com/Maxeffortchall1" target="_blank" data-toggle="tooltip" title="Siguenos en Twitter">
                 <i class="fa fa-twitter-square"></i>
                 <span class="nav-link-inner--text d-lg-none">Twitter</span>
               </a>
@@ -96,7 +96,7 @@
                       <div class="input-group-prepend">
                         <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                       </div>
-                      <input class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="Email" type="email" id="inputEmail" name="email" required autofocus>
+                      <input class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="Email" type="email" id="inputEmail" name="email" value="{{ old('email')}}" required autofocus>
                     </div>
                     @if ($errors->has('email'))
                         <span class="invalid-feedback" role="alert">

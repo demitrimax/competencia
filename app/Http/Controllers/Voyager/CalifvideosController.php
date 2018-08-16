@@ -38,6 +38,7 @@ class CalifvideosController extends Controller
       if ($request->input('peso')) {
             $vid->peso = $request->input('peso');
       }
+      $vid->save();
 
       return Voyager::view('voyager::compvideos.califica')->with(compact('vid'));
     }

@@ -10,7 +10,7 @@
         <div class="col-lg-8 col-lg-offset-2">
           <div class="wow flipInY" data-wow-offset="0" data-wow-delay="0.4s">
             <div class="section-heading text-center">
-              <h2 class="h-bold">Resgistro</h2>
+              <h2 class="h-bold">Registro</h2>
               <div class="divider-header"></div>
               <p>Para participar en la competencia tendrá que realizar un pago por <strong>$200.00 MXN</strong></p>
               <spam>Por favor registrese a continuación será redirigido a PayPal para realizar su pago.</spam>
@@ -109,7 +109,7 @@
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input name="password" placeholder="Conraseña" class="form-control"  type="password">
+  <input name="password" placeholder="Contraseña" class="form-control"  type="password">
     </div>
   </div>
 </div>

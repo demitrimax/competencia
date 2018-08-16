@@ -16,6 +16,7 @@
  <br>
 Se califica  {{$vid->clasifica}} <br>
 <form method="post">
+  {{ csrf_field() }}
 Introduzca Calificación:
   @if($vid->clasifica=="Amrar")
     <input type="number" name="repeticiones"> Repeticiones
