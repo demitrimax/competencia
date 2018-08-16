@@ -26,5 +26,17 @@ class CalifvideosController extends Controller
       return Voyager::view('voyager::compvideos.califica')->with(compact('vid'));
     }
 
+    public function update(Request $request, $id)
+    {
+      $vid = compvideos::findOrFail($id);
+
+            $vid->tiempo = $request->input('tiempo');
+      }
+
+      $vid->repeticiones = $request->input('repeticiones');
+      $vid->peso- = $request->input('peso');
+      return Voyager::view('voyager::compvideos.califica')->with(compact('vid'));
+    }
+
 
 }
