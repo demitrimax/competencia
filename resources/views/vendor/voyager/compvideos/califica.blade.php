@@ -24,7 +24,7 @@ Introduzca Calificación:
     <input type="text" name="tiempo"> Tiempo
   @endif
   @if($vid->clasifica=="P.R.")
-    <input type="text" name="peso"> Tiempo
+    <input type="text" name="peso"> Peso
   @endif
   <button type="submit" value="Calificar" class="form-control">Calificar</button>
 </form>
