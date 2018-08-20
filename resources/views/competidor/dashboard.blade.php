@@ -3,10 +3,9 @@
 class="profile-page"
 @endsection
 @section('content')
+
 <section class="section-profile-cover section-shaped my-0">
   <div class="shape shape-style-1 shape-primary shape-skew alpha-4">
-    <span></span>
-    <span></span>
     <span></span>
     <span></span>
     <span></span>
@@ -90,19 +89,22 @@ Sube tu Video</a>
           <div class="mt-5 py-5 border-top text-center">
             <div class="row justify-content-center">
             @foreach($videos as $video)
-              <div class="col-lg-9">
+              <div class="col-sm-12">
                 <div class="row">
                    <div class="col">
                      <span>
                        <?php
+                          $attributes = [ 'width' => 480, 'height'=>295 ];
                           echo LaravelVideoEmbed::parse($video->videourl);
                         ?>
                        </span>
                    </div>
-                   <div class="col">
+                   <div class="col text-left">
                      <span>
-                         <strong>Fecha de Carga</strong> {{$video->created_at}}
+                         <strong>Fecha de Carga</strong> {{$video->created_at->format('d/M/Y h:i:s')}}
                       </span><br>
+                      <span> <strong>Comentario:</strong> {{ $video->comentario }} </span><br>
+                      <span><strong> Calificado:</strong> </span>
 
                    </div>
                  </div>
