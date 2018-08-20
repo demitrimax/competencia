@@ -24,7 +24,7 @@
                                   <th>Competidor</th>
                                   <th>Competencia</th>
                                   <th>Clasificación</th>
-                                  <th>Calificador</th>
+                                  <th>Calificación</th>
                               </tr>
                           </thead>
                           <tbody>
@@ -35,7 +35,7 @@
                                       <td><a href="{{url('admin/compvideos/'.$video->id)}}">{{$video->suscriptores->nombre." ". $video->suscriptores->apellidos}}<a></td>
                                       <td>{{$video->tcompetencia->competencia."-".$video->tcompetencia->nivel}}</td>
                                       <td>{{$video->clasifica}}</td>
-                                      <td>7.5</td>
+                                      <td>{{$video->tiempo}} {{$video->peso}} {{$video->repeticiones}}</td>
                               </tr>
                               @endforeach
                           </tbody>

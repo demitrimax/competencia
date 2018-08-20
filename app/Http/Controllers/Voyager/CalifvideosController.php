@@ -26,8 +26,9 @@ class CalifvideosController extends Controller
       return Voyager::view('voyager::compvideos.califica')->with(compact('vid'));
     }
 
-    public function update(Request $request, $id)
+    public function store(Request $request)
     {
+      $id = $request->input('videoid');
       $vid = compvideos::findOrFail($id);
       if ($request->input('tiempo')) {
                 $vid->tiempo = $request->input('tiempo');
@@ -40,7 +41,7 @@ class CalifvideosController extends Controller
       }
       $vid->save();
 
-      return Voyager::view('voyager::compvideos.califica')->with(compact('vid'));
+      return redirect('admin/compvideos');
     }
 
 
