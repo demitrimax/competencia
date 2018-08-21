@@ -32,4 +32,5 @@ class suscriptores extends Authenticatable
    public function compvideos() {
      return $this->hasMany(compvideos::class,'suscriptor_id');
    }
+   
 }
