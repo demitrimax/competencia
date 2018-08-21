@@ -49,7 +49,7 @@ class compvideosTableSeeder extends Seeder
         'https://www.youtube.com/watch?v=PP4dzv-51v0',
         'https://www.youtube.com/watch?v=XSmyOvvXvNk',
         'https://www.youtube.com/watch?v=jai9sDJR33Q',);
-        'suscriptor_id')->unsigned();
+        'suscriptor_id' => ??,
         'videourl' => $faker->randomElement($VideosURL),
         'tcompetencia_id' => ,
         'tiempo' => ,

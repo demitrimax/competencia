@@ -17,8 +17,7 @@
         "laravel/tinker": "^1.0",
         "merujan99/laravel-video-embed": "dev-master",
         "paypal/rest-api-sdk-php": "^1.13",
-        "ricardofiorani/php-video-url-parser": "^1.0",
-        "tcg/voyager": "^1.1"
+        "ricardofiorani/php-video-url-parser": "^1.0"
     },
     "require-dev": {
         "filp/whoops": "^2.0",
