@@ -52,12 +52,12 @@
             <li class="nav-item dropdown">
               <a href="#" class="nav-link" data-toggle="dropdown" href="#" role="button">
                 <i class="ni ni-collection d-lg-none"></i>
-                <span class="nav-link-inner--text">Menu</span>
+                <span class="nav-link-inner--text">Menú</span>
               </a>
               <div class="dropdown-menu">
                 <a href="../examples/landing.html" class="dropdown-item">Landing</a>
                 <a href="../examples/profile.html" class="dropdown-item">Profile</a>
-                <a href="../examples/login.html" class="dropdown-item">Login</a>
+                <a href="{{url('/')}}" class="dropdown-item">Página Principal</a>
                 <a href="{{route('competidor.logout')}}" class="dropdown-item">Cerrar Sesión</a>
               </div>
             </li>

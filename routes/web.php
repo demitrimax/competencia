@@ -38,16 +38,11 @@ Route::prefix('competidor')->group(function() {
 });
 
 
-
-
 //vista previa email
 
 Route::get('email', function() {
     Mail::to('armandoaguilar1@hotmail.com')
           ->send(new App\Mail\WelcomeUser());
 });
-
-
-Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
-});
+//Admin
+Route::get('/admin','administradorController@index');
