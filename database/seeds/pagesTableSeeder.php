@@ -17,19 +17,19 @@ class pagesTableSeeder extends Seeder
           [
             'author_id' => 1,
             'title' => 'Hello Word',
-            'excerp' => 'Hang the jib grog grog blossom grapple dance the hempen jig gangway pressgang bilge rat to go on account lugger. Nelsons folly gabion line draught scallywag fire ship gaff fluke fathom case shot. Sea Legs bilge rat sloop matey gabion long clothes run a shot across the bow Gold Road cog league.',
+            'excerpt' => 'Hang the jib grog grog blossom grapple dance the hempen jig gangway pressgang bilge rat to go on account lugger. Nelsons folly gabion line draught scallywag fire ship gaff fluke fathom case shot. Sea Legs bilge rat sloop matey gabion long clothes run a shot across the bow Gold Road cog league.',
             'body' => '<p>Hello World. Scallywag grog swab Cat onine tails scuttle rigging hardtack cable nipper Yellow Jack. Handsomely spirits knave lad killick landlubber or just lubber deadlights chantey pinnace crack Jennys tea cup. Provost long clothes black spot Yellow Jack bilged on her anchor league lateen sail case shot lee tackle.</p>
 <p>Ballast spirits fluke topmast me quarterdeck schooner landlubber or just lubber gabion belaying pin. Pinnace stern galleon starboard warp carouser to go on account dance the hempen jig jolly boat measured fer yer chains. Man-of-war fire in the hole nipperkin handsomely doubloon barkadeer Brethren of the Coast gibbet driver squiffy.</p>',
             'image' => '',
             'slug' => 'hello-world',
-            'meta-description' => 'Yar Meta Description',
-            'meta-keywords' => 'Keyword1, Keyword2',
-            'status' => 'ACTIVE',
+            'meta_description' => 'Yar Meta Description',
+            'meta_keywords' => 'Keyword1, Keyword2',
+            'status' => 'ACTIVO',
           ],
           [
             'author_id' => 1,
             'title' => 'Historia',
-            'excerp' => 'Nuestra Historia',
+            'excerpt' => 'Nuestra Historia',
             'body' => '<h1>&nbsp;</h1>
 <table style="height: 83px; background-color: black; margin-left: auto; margin-right: auto;" width="1479">
 <tbody>
@@ -51,9 +51,9 @@ class pagesTableSeeder extends Seeder
 <p><strong>Queremos que cada persona que entrenan ya sea por gusto, por salud, por distracci&oacute;n cual sea su motivo, tengan una motivaci&oacute;n atraves de poner a prueba su estado f&iacute;sico en nuestras competencias, llev&aacute;ndote a dar tu m&aacute;ximo esfuerzo.&nbsp;</strong></p>',
             'image' => '',
             'slug' => 'historia',
-            'meta-description' => 'Historia',
-            'meta-keywords' => 'Historia',
-            'status' => 'ACTIVE',
+            'meta_description' => 'Historia',
+            'meta_keywords' => 'Historia',
+            'status' => 'ACTIVO',
           ],
         ];
         pages::insert($paginas);

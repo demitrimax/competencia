@@ -23,22 +23,23 @@ class suscriptoresTableSeeder extends Seeder
             'telefono' => '9933082770',
             'tcompetencia_id' => 4,
             'email' => 'armandoaguilar1@hotmail.com',
-            'password' = bcrypt('moisesaguilar'),
+            'password' => bcrypt('moisesaguilar'),
             'premium' => 0,
           ],
           [
             'nombre' => 'Israel',
             'apellidos' => 'Garcia',
             'fecnac' => '1983-06-29',
-            'edad' => 37,
+            'edad' => 35,
             'genero' => 'H',
-            'telefono' => '9933082770',
+            'telefono' => '9931202470',
             'tcompetencia_id' => 4,
-            'email' => 'armandoaguilar1@hotmail.com',
-            'password' = bcrypt('israelgarcia'),
-            'premium' => 0,
+            'email' => 'israel_hp@hotmail.com',
+            'password' => bcrypt('israelgarcia'),
+            'premium' => 1,
           ],
         ];
+        suscriptores::insert($suscriptores);
         factory(suscriptores::class, 100)->create();
     }
 }

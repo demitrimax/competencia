@@ -17,6 +17,6 @@ $factory->define(suscriptores::class, function (Faker $faker) {
         'password'=>bcrypt('123456789'),
         'premium'=>1,
         'bio'=> $faker->sentence($nbWords = 6, $variableNbWords = true),
-        'tcompetencia_id' = > $faker->randomElement($array = array(1,2,3,4,5,6,7,8,9,10,11)),
+        'tcompetencia_id' => $faker->randomElement($array = array(1,2,3,4,5,6,7,8,9,10,11)),
     ];
 });

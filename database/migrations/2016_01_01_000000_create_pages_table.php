@@ -23,7 +23,7 @@ class CreatePagesTable extends Migration
             $table->string('slug')->unique();
             $table->text('meta_description')->nullable();
             $table->text('meta_keywords')->nullable();
-            $table->enum('status')->default('INACTIVO');
+            $table->enum('status',['ACTIVO','INACTIVO','PUBLICADO'])->default('INACTIVO');
             $table->timestamps();
         });
     }

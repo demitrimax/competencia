@@ -13,7 +13,7 @@ class postTableSeeder extends Seeder
     public function run()
     {
         //
-        $pots = [
+        $post = [
           [
             'author_id' => '1',
             'title' => 'Obesidad y sobrepeso',
@@ -136,9 +136,9 @@ class postTableSeeder extends Seeder
 <div style="box-sizing: border-box; color: #3c4245; font-family: Arial, Helvetica, sans-serif; font-size: 16px;">&nbsp;</div>',
   'image' => 'posts/August2018/dJCLyrGrAEP4yvWNY75w.jpg',
   'slug' => 'obesidad-y-sobrepeso',
-  'meta-description' => 'This is the meta description',
-  'meta-keywords' => 'keyword1, keyword2, keyword3',
-  'status' => 'PUBLISHED',
+  'meta_description' => 'This is the meta description',
+  'meta_keywords' => 'keyword1, keyword2, keyword3',
+  'status' => 'PUBLICADO',
   'featured' => 0,
           ],
           [
@@ -178,9 +178,9 @@ class postTableSeeder extends Seeder
 <p><span style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-variant: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; vertical-align: baseline; color: #333333;"><span style="font-family: inherit; font-size: inherit; font-style: inherit; font-variant-ligatures: inherit; font-variant-caps: inherit; font-weight: inherit;">En definitiva esperamos que construyas tus pectorales de acero con estos 8 ejercicios.</span>&nbsp;</span></p>',
   'image' => 'posts/August2018/P7XTYJsb02ZeEGISamFg.jpg',
   'slug' => 'top-8-para-pectorales',
-  'meta-description' => 'Meta Description for sample post',
-  'meta-keywords' => 'keyword1, keyword2, keyword3',
-  'status' => 'PUBLISHED',
+  'meta_description' => 'Meta Description for sample post',
+  'meta_keywords' => 'keyword1, keyword2, keyword3',
+  'status' => 'PUBLICADO',
   'featured' => 0,
           ],
 
@@ -214,9 +214,9 @@ class postTableSeeder extends Seeder
 </div>',
   'image' => 'posts/August2018/bHrrmITGdPYjUhpOufqb.jpg',
   'slug' => 'cinco-razones-por-las-que-te-sientes-bien-despues-de-practicar-crossfit',
-  'meta-description' => 'Meta Description for sample post',
-  'meta-keywords' => 'keyword1, keyword2, keyword3',
-  'status' => 'PUBLISHED',
+  'meta_description' => 'Meta Description for sample post',
+  'meta_keywords' => 'keyword1, keyword2, keyword3',
+  'status' => 'PUBLICADO',
   'featured' => 0,
           ],
           [
@@ -293,12 +293,12 @@ class postTableSeeder extends Seeder
 </div>',
   'image' => 'posts/August2018/S8CCKUW3QhM9b66ddeTG.jpg',
   'slug' => 'los-bloqueos-por-que-no-avanzamos',
-  'meta-description' => 'Meta Description for sample post',
-  'meta-keywords' => 'keyword1, keyword2, keyword3',
-  'status' => 'PUBLISHED',
+  'meta_description' => 'Meta Description for sample post',
+  'meta_keywords' => 'keyword1, keyword2, keyword3',
+  'status' => 'PUBLICADO',
   'featured' => 0,
           ],
         ];
-        post::insert($posts);
+        post::insert($post);
     }
 }
