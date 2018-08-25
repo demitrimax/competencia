@@ -16,7 +16,7 @@
         </div>
       </div>
     </div>
-    <img src="{{ url('storage/'.$entradablog->image)}}" class="image-responsive">
+    <img src="{{ url($entradablog->image)}}" class="image-responsive">
   </div>
 </section>
 <section>

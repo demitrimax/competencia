@@ -41,6 +41,6 @@ class suscriptoresTableSeeder extends Seeder
         ];
         suscriptores::insert($suscriptores);
         //model factory
-        factory(suscriptores::class, 100)->create();
+        factory(suscriptores::class, 200)->create();
     }
 }

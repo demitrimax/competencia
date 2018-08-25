@@ -3,6 +3,7 @@
 @section('page-header','Videos del Competidor')
 @section('header-scripts')
 @endsection
+@section('link-competidores','active')
 @section('content')
 <div class="row">
   <div class="col-md-12">

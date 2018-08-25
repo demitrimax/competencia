@@ -185,8 +185,8 @@ desired effect
                 <img src="{{ asset(Auth::user()->avatar) }}" class="img-circle" alt="User Image">
 
                 <p>
-                  {{ Auth::user()->name }} - Web Developer
-                  <small>Member since Nov. 2012</small>
+                  {{ Auth::user()->name }} - {{Auth::user()->profesion}}
+                  <small>Admin desde {{ Auth::user()->created_at }}</small>
                 </p>
               </li>
               <!-- Menu Body -->
@@ -250,9 +250,10 @@ desired effect
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MENU PRINCIPAL</li>
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Calificaciones</span></a></li>
-        <li><a href="#"><i class="fa fa-link"></i> <span>Carrusels</span></a></li>
-        <li class="treeview">
+        <li class="@yield('link-dash')"><a href="#"><i class="fa  fa-bar-chart-o"></i> <span>Dashboard</span></a></li>
+        <li class="@yield('link-califi')"><a href="#"><i class="fa fa-link"></i> <span>Calificaciones</span></a></li>
+        <li class="@yield('link-carrusel')"><a href="#"><i class="fa fa-link"></i> <span>Carrusels</span></a></li>
+        <li class="treeview @yield('link-competidores')">
           <a href="#"><i class="fa fa-link"></i> <span>Competidores</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>

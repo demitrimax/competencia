@@ -3,6 +3,7 @@
 @section('page-header','Lista de Competidores')
 @section('header-scripts')
 @endsection
+@section('link-competidores','active')
 @section('content')
 <div class="row">
   <div class="col-xs-12">
