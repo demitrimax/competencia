@@ -13,6 +13,6 @@ class compvideosTableSeeder extends Seeder
     public function run()
     {
         //
-        factory(compvideos::class, 100)->create();
+        factory(compvideos::class, 250)->create();
     }
 }

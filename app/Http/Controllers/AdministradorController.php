@@ -62,4 +62,22 @@ class AdministradorController extends Controller
       $videos = compvideos::where('suscriptor_id',$id)->get();
       return view('admin.compvideos')->with(compact('videos'));
     }
+
+    public function videos()
+    {
+      if (Auth::user()->avatar == "" )
+      {
+        Auth::user()->avatar = 'adminlte/dist/img/avatar5.png';
+      }
+      $videos = compvideos::where('tiempo',null)->orWhere('repeticiones',null)->orWhere('peso',null)->get();
+      return view('admin.listvideos')->with(compact('videos'));
+    }
+    public function calificavideo()
+    {
+      if (Auth::user()->avatar == "" )
+      {
+        Auth::user()->avatar = 'adminlte/dist/img/avatar5.png';
+      }
+      return view('admin.califvideo');
+    }
 }

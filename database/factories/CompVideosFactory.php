@@ -51,6 +51,6 @@ $factory->define(compvideos::class, function (Faker $faker) {
         //'repeticiones' => ,
         //'peso' => ,
         'comentario' => $faker->sentence($nbWords = 6, $variableNbWords = true),
-        'clasifica' => $faker->randomElement($array=array('amrar','fortime','peso')),
+        'clasifica' => $faker->randomElement($array=array('AMRAR','FORTIME','P.R.')),
     ];
 });

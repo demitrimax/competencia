@@ -250,7 +250,7 @@ desired effect
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MENU PRINCIPAL</li>
         <!-- Optionally, you can add icons to the links -->
-        <li class="@yield('link-dash')"><a href="#"><i class="fa  fa-bar-chart-o"></i> <span>Dashboard</span></a></li>
+        <li class="@yield('link-dash')"><a href="{{url('admin/')}}"><i class="fa  fa-bar-chart-o"></i> <span>Dashboard</span></a></li>
         <li class="@yield('link-califi')"><a href="#"><i class="fa fa-link"></i> <span>Calificaciones</span></a></li>
         <li class="@yield('link-carrusel')"><a href="#"><i class="fa fa-link"></i> <span>Carrusels</span></a></li>
         <li class="treeview @yield('link-competidores')">
@@ -260,7 +260,7 @@ desired effect
               </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#">Lista de Videos</a></li>
+            <li><a href="{{url('admin/videos')}}">Lista de Videos</a></li>
             <li><a href="{{url('admin/competidores')}}">Lista de Competidores inscritos</a></li>
           </ul>
         </li>

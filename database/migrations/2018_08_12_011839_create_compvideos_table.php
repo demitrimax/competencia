@@ -24,7 +24,7 @@ class CreateCompvideosTable extends Migration
             $table->integer('repeticiones')->nullable();
             $table->integer('peso')->nullable();
             $table->text('comentario')->nullable();
-            $table->enum('clasifica',['amrar','fortime','peso'])->default('amrar');
+            $table->enum('clasifica',['AMRAR','FORTIME','P.R.'])->default('AMRAR');
             $table->softDeletes();
             $table->timestamps();
         });

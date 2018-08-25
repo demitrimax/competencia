@@ -49,4 +49,6 @@ Route::prefix('admin')->group(function() {
   Route::get('/','administradorController@index');
   Route::get('/competidores','administradorController@competidores');
   Route::get('/competidor/{id}/videos','administradorController@compvideos');
+  Route::get('/videos','administradorController@videos');
+  Route::get('/videos/{id}/califica','administradorController@calificavideo');
 });
