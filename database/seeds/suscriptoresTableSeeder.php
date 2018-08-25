@@ -12,7 +12,7 @@ class suscriptoresTableSeeder extends Seeder
      */
     public function run()
     {
-        //model factory
+        //suscriptores prueba
         $suscriptores = [
           [
             'nombre' => 'Moises',
@@ -40,6 +40,7 @@ class suscriptoresTableSeeder extends Seeder
           ],
         ];
         suscriptores::insert($suscriptores);
+        //model factory
         factory(suscriptores::class, 100)->create();
     }
 }

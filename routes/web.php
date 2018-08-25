@@ -45,4 +45,8 @@ Route::get('email', function() {
           ->send(new App\Mail\WelcomeUser());
 });
 //Admin
-Route::get('/admin','administradorController@index');
+Route::prefix('admin')->group(function() {
+  Route::get('/','administradorController@index');
+  Route::get('/competidores','administradorController@competidores');
+  Route::get('/competidor/{id}/videos','administradorController@compvideos');
+});
