@@ -53,14 +53,14 @@
           <!-- small box -->
           <div class="small-box bg-red">
             <div class="inner">
-              <h3>65</h3>
+              <h3>{{$videos}}</h3>
 
-              <p>Visitantes</p>
+              <p>Videos por Calificar</p>
             </div>
             <div class="icon">
               <i class="ion ion-pie-graph"></i>
             </div>
-            <a href="#" class="small-box-footer">Más info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{url('admin/videos')}}" class="small-box-footer">Más info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->

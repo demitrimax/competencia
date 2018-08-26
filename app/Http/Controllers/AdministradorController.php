@@ -26,6 +26,7 @@ class AdministradorController extends Controller
       {
         Auth::user()->avatar = 'adminlte/dist/img/avatar5.png';
       }
+      $videos = compvideos::whereNull('tiempo')->whereNull('repeticiones')->whereNull('peso')->count();
       $totalsuscriptores = suscriptores::count();
       $premium = suscriptores::where('premium','1')->count();
       $porcentajeaceptacion = round(($premium / $totalsuscriptores)*100);
@@ -40,7 +41,7 @@ class AdministradorController extends Controller
       $perderpeso = suscriptores::where('premium','1')->wherein('tcompetencia_id',['13'])->count();
       $porcPerderpeso= round(($perderpeso / $totalsuscriptores)*100);
       //dd($totalsuscriptores);
-      return view('admin.dashboard')->with(compact('totalsuscriptores','premium','porcentajeaceptacion','crossfit','porcCross','gymnastic','porcGym','weight','porcWeight','condition','porcCondition','perderpeso','porcPerderpeso'));
+      return view('admin.dashboard')->with(compact('videos','totalsuscriptores','premium','porcentajeaceptacion','crossfit','porcCross','gymnastic','porcGym','weight','porcWeight','condition','porcCondition','perderpeso','porcPerderpeso'));
     }
 
     public function competidores()
@@ -69,15 +70,34 @@ class AdministradorController extends Controller
       {
         Auth::user()->avatar = 'adminlte/dist/img/avatar5.png';
       }
-      $videos = compvideos::where('tiempo',null)->orWhere('repeticiones',null)->orWhere('peso',null)->get();
+      $videos = compvideos::whereNull('tiempo')->whereNull('repeticiones')->whereNull('peso')->get();
       return view('admin.listvideos')->with(compact('videos'));
     }
-    public function calificavideo()
+    public function calificavideo($id)
     {
       if (Auth::user()->avatar == "" )
       {
         Auth::user()->avatar = 'adminlte/dist/img/avatar5.png';
       }
-      return view('admin.califvideo');
+      $elvideo = compvideos::find($id);
+      return view('admin.califvideo')->with(compact('elvideo'));
     }
+    public function guardacalif(Request $request)
+    {
+
+      $id = $request->input('videoid');
+      $vid = compvideos::findOrFail($id);
+      if ($request->input('tiempo')) {
+                $vid->tiempo = $request->input('tiempo');
+      }
+      if ($request->input('repeticiones')) {
+            $vid->repeticiones = $request->input('repeticiones');
+      }
+      if ($request->input('peso')) {
+            $vid->peso = $request->input('peso');
+      }
+      $vid->save();
+      return redirect('admin/videos');
+    }
+
 }
