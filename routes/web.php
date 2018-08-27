@@ -52,4 +52,5 @@ Route::prefix('admin')->group(function() {
   Route::get('/videos','administradorController@videos');
   Route::get('/videos/{id}/califica','administradorController@calificavideo');
   Route::post('/video/califica','administradorController@guardacalif');
+  Route::get('/competidores/calificaciones','administradorController@calificaciones');
 });

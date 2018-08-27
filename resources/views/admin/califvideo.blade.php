@@ -25,10 +25,10 @@
             <!-- /.box-header -->
             <div class="box-body">
               <div class="row">
-                <div class="col-sm-4 col-md-4">
+                <div class="col-md-8">
                                     {!! LaravelVideoEmbed::parse($elvideo->videourl) !!}
                 </div>
-                <div class="col-sm-4 col-md-4">
+                <div class="col-md-4">
                     <p>{{$elvideo->comentario}}</p>
                     Se califica  <strong>{{$elvideo->tcompetencia->competencia}} | {{$elvideo->tcompetencia->nivel}} | {{$elvideo->clasifica}}<strong> <br>
                     <form method="post" action="{{url('admin/video/califica')}}">

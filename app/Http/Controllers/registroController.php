@@ -138,6 +138,7 @@ class registroController extends Controller
             $videourl->suscriptor_id = $suscriptor->id;
             $videourl->videourl = $request->input('videourl');
             $videourl->tcompetencia_id = $request->input('tcompetencia');
+            $videourl->comentario = 'Video cargado en el registro, se clasifica por default como AMRAR (repeticiones), esto puede ser cambiado en el Dashboard del usuario.';
             $videourl->save();
           }
           $id_suscriptor = $suscriptor->id;

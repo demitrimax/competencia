@@ -31,15 +31,15 @@ class AdministradorController extends Controller
       $premium = suscriptores::where('premium','1')->count();
       $porcentajeaceptacion = round(($premium / $totalsuscriptores)*100);
       $crossfit = suscriptores::where('premium','1')->wherein('tcompetencia_id',['1','2','3'])->count();
-      $porcCross = round(($crossfit / $totalsuscriptores)*100);
+      $porcCross = round(($crossfit / $premium)*100);
       $gymnastic = suscriptores::where('premium','1')->wherein('tcompetencia_id',['4','5','6'])->count();
-      $porcGym = round(($gymnastic / $totalsuscriptores)*100);
+      $porcGym = round(($gymnastic / $premium)*100);
       $weight = suscriptores::where('premium','1')->wherein('tcompetencia_id',['7','8','9'])->count();
-      $porcWeight= round(($weight / $totalsuscriptores)*100);
+      $porcWeight= round(($weight / $premium)*100);
       $condition = suscriptores::where('premium','1')->wherein('tcompetencia_id',['10','11','12'])->count();
-      $porcCondition= round(($condition / $totalsuscriptores)*100);
+      $porcCondition= round(($condition / $premium)*100);
       $perderpeso = suscriptores::where('premium','1')->wherein('tcompetencia_id',['13'])->count();
-      $porcPerderpeso= round(($perderpeso / $totalsuscriptores)*100);
+      $porcPerderpeso= round(($perderpeso / $premium)*100);
       //dd($totalsuscriptores);
       return view('admin.dashboard')->with(compact('videos','totalsuscriptores','premium','porcentajeaceptacion','crossfit','porcCross','gymnastic','porcGym','weight','porcWeight','condition','porcCondition','perderpeso','porcPerderpeso'));
     }
@@ -70,7 +70,10 @@ class AdministradorController extends Controller
       {
         Auth::user()->avatar = 'adminlte/dist/img/avatar5.png';
       }
-      $videos = compvideos::whereNull('tiempo')->whereNull('repeticiones')->whereNull('peso')->get();
+      $videos = compvideos::whereNull('tiempo')
+                ->whereNull('repeticiones')
+                ->whereNull('peso')
+                ->paginate(10);
       return view('admin.listvideos')->with(compact('videos'));
     }
     public function calificavideo($id)
@@ -98,6 +101,28 @@ class AdministradorController extends Controller
       }
       $vid->save();
       return redirect('admin/videos');
+    }
+
+    public function calificaciones()
+    {
+      if (Auth::user()->avatar == "" )
+      {
+        Auth::user()->avatar = 'adminlte/dist/img/avatar5.png';
+      }
+      //$crossfit = suscriptores::where('premium','1')->wherein('tcompetencia_id',['1','2','3'])->get();
+      $crossfit = suscriptores::
+                              join('compvideos','suscriptores.id','=','compvideos.suscriptor_id')
+                              //->select('suscriptores.*','compvideos.*')
+                              ->where('suscriptores.premium',1)
+                              ->wherein('suscriptores.tcompetencia_id',['1','2','3'])
+                              ->whereNotNull('compvideos.tiempo')
+                              ->orwhereNotNull('compvideos.repeticiones')
+                              ->orwhereNotNull('compvideos.peso')
+                              ->toSql();
+      dd($crossfit);
+
+      //dd($crossfit);
+      return view('admin.calificaciones')->with(compact('crossfit'));
     }
 
 }

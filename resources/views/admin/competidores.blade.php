@@ -4,6 +4,7 @@
 @section('header-scripts')
 @endsection
 @section('link-competidores','active')
+@section('link-competidores-comp','active')
 @section('content')
 <div class="row">
   <div class="col-xs-12">

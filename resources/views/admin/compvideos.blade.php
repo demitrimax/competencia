@@ -32,8 +32,8 @@
 
           </div>
           <div class="timeline-footer">
-            <a class="btn btn-primary btn-xs">Read more</a>
-            <a class="btn btn-danger btn-xs">Delete</a>
+            <a class="btn btn-primary btn-xs">Calificar</a>
+            <a class="btn btn-danger btn-xs">Eliminar Video</a>
           </div>
         </div>
       </li>

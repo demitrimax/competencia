@@ -251,17 +251,17 @@ desired effect
         <li class="header">MENU PRINCIPAL</li>
         <!-- Optionally, you can add icons to the links -->
         <li class="@yield('link-dash')"><a href="{{url('admin/')}}"><i class="fa  fa-bar-chart-o"></i> <span>Dashboard</span></a></li>
-        <li class="@yield('link-califi')"><a href="#"><i class="fa fa-link"></i> <span>Calificaciones</span></a></li>
-        <li class="@yield('link-carrusel')"><a href="#"><i class="fa fa-link"></i> <span>Carrusels</span></a></li>
+        <li class="@yield('link-calif')"><a href="{{url('admin/competidores/calificaciones')}}"><i class="fa fa-thumbs-o-up"></i> <span>Calificaciones</span></a></li>
+        <li class="@yield('link-carrusel')"><a href="#"><i class="fa fa-suitcase"></i> <span>Carrusels</span></a></li>
         <li class="treeview @yield('link-competidores')">
-          <a href="#"><i class="fa fa-link"></i> <span>Competidores</span>
+          <a href="#"><i class="fa fa-group"></i> <span>Competidores</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{url('admin/videos')}}">Lista de Videos</a></li>
-            <li><a href="{{url('admin/competidores')}}">Lista de Competidores inscritos</a></li>
+            <li class="@yield('link-competidores-videos')"><a href="{{url('admin/videos')}}">Lista de Videos</a></li>
+            <li class="@yield('link-competidores-comp')"><a href="{{url('admin/competidores')}}">Lista de Competidores inscritos</a></li>
           </ul>
         </li>
       </ul>
@@ -301,7 +301,7 @@ desired effect
   <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-      Anything you want
+      Ver 1.0
     </div>
     <!-- Default to the left -->
     <strong>Copyright &copy; 2018 <a href="#">Veritas Software</a>.</strong> All rights reserved.

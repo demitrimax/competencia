@@ -4,6 +4,7 @@
 @section('header-scripts')
 @endsection
 @section('link-competidores','active')
+@section('link-competidores-videos','active')
 @section('content')
 <div class="col-xs-12">
           <div class="box">
@@ -44,6 +45,7 @@
                 </tr>
                 @endforeach
               </tbody></table>
+              {{ $videos->links() }}
             </div>
             <!-- /.box-body -->
           </div>
