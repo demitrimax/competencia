@@ -12,7 +12,7 @@
             <h2 class="h-bold">PANEL DE CONTROL</h2>
             <div class="divider-header"></div>
             <p>ESTAS SON LAS OPCIONES DE ADMINISTRADOR.</p>
-            <button href="{{ url('/admin')}}" class="btn btn-skin">Panel de Administración</button>
+            <a href="{{ url('/admin')}}" class="btn btn-skin">Panel de Administración</a>
           </div>
 
         </div>

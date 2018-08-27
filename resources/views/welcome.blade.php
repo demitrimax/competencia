@@ -133,7 +133,7 @@
           <div class="wow fadeInLeft" data-wow-delay="0.2s">
             <div class="service-box">
               <div class="service-icon">
-                <img src="{{ url('storage/'.$entrada->image) }}" alt="post image" class="image-responsive" style="width:150px;">
+                <img src="{{ url($entrada->image) }}" alt="post image" class="image-responsive" style="width:150px;">
               </div>
               <div class="service-desc">
                 <h5>{{$entrada->title}}</h5>

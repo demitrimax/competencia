@@ -22,7 +22,7 @@ class Suscriptores extends Migration
             $table->integer('edad');
             $table->enum('genero',['H','M']);
             $table->string('telefono');
-            $table->string('tcompetencia');
+            $table->integer('tcompetencia_id');
             $table->string('email')->unique();
             $table->string('password');
             $table->boolean('premium');

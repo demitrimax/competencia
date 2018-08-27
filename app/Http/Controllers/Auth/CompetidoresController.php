@@ -32,7 +32,7 @@ class CompetidoresController extends Controller
     public function index()
     {
         $videos = compvideos::where('suscriptor_id',Auth::user()->id)->get();
-        $competencia = tcompetencia::where('nombreclave', Auth::user()->tcompetencia)->first();
+        $competencia = tcompetencia::where('id', Auth::user()->tcompetencia_id)->first();
         return view('competidor.dashboard')->with(compact('videos','competencia'));
     }
     public function avatarchange(Request $request)

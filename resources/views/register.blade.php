@@ -58,7 +58,7 @@
       $grupo = $competencia->competencia ?>
       <optgroup label="{{$grupo}}">
   <?php }  ?>
-      <option value="{{$competencia->nombreclave}}">{{$competencia->nivel}}</option>
+      <option value="{{$competencia->id}}">{{$competencia->nivel}}</option>
 @endforeach
 </select>
   </select>

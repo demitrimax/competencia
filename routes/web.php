@@ -38,16 +38,21 @@ Route::prefix('competidor')->group(function() {
 });
 
 
-
-
 //vista previa email
 
 Route::get('email', function() {
     Mail::to('armandoaguilar1@hotmail.com')
           ->send(new App\Mail\WelcomeUser());
 });
-
-
-Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
+//Admin
+Route::prefix('admin')->group(function() {
+  Route::get('/','administradorController@index');
+  Route::get('/competidores','administradorController@competidores');
+  Route::get('/competidor/{id}/perfil','administradorController@compperfil');
+  Route::get('/competidor/{id}/videos','administradorController@compvideos');
+  Route::get('/videos','administradorController@videos');
+  Route::get('/videos/{id}/califica','administradorController@calificavideo');
+  Route::post('/video/califica','administradorController@guardacalif');
+  Route::get('/competidores/calificaciones','administradorController@calificaciones');
+  Route::get('/calif/cross','administradorController@califCrossfit');
 });

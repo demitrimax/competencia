@@ -23,10 +23,10 @@ class inicioController extends Controller
       //crear las minuaturas de las imagenes
       foreach ($carrusel as $carruel) {
         $manager = new ImageManager;
-        $path = 'storage/'.dirname($carruel->imagen).'/thumbs/';
-        $path = str_replace('\\','/',$path);
+        $path = dirname($carruel->imagen).'/thumbs/';
+        $path = str_replace('\\','/',$path).'/';
         $nombre = basename($carruel->imagen);
-
+        //echo $path.$nombre;
         //$thumbs = 'muniatura'-> $path.$nombre;
         if (!file_exists($path.$nombre)) {
           if (!file_exists($path)){

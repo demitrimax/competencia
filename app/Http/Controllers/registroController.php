@@ -124,21 +124,21 @@ class registroController extends Controller
           $suscriptor->edad = $request->input('edad');
           $suscriptor->genero = $request->input('gender');
           $suscriptor->telefono = $request->input('telefono');
-          $suscriptor->tcompetencia = $request->input('tcompetencia');
+          $suscriptor->tcompetencia_id = $request->input('tcompetencia');
           $suscriptor->email = $request->input('email');
           $suscriptor->password = bcrypt($request->input('password'));
           $suscriptor->premium = 0;
           $suscriptor->save();
           //guardar el video que el usuario haya subido
 
-          $tipocompetencia = tcompetencia::where('nombreclave', $request->input('tcompetencia'))->first();
           //dd($tipocompetencia);
           if (($request->input('videourl'))==!null)
           {
             $videourl = new compvideos;
-            $videourl->competidor = $suscriptor->id;
+            $videourl->suscriptor_id = $suscriptor->id;
             $videourl->videourl = $request->input('videourl');
-            $videourl->tcompetencia = $tipocompetencia->id;
+            $videourl->tcompetencia_id = $request->input('tcompetencia');
+            $videourl->comentario = 'Video cargado en el registro, se clasifica por default como AMRAR (repeticiones), esto puede ser cambiado en el Dashboard del usuario.';
             $videourl->save();
           }
           $id_suscriptor = $suscriptor->id;

@@ -25,7 +25,7 @@ class="profile-page"
                   // si el usuario no tiene un avatar, entonces asignar uno por default
                   if (Auth::user()->avatar =="") {
                     if (Auth::user()->genero == "H") { $ngen = rand(1,3);}
-                    if (Auth::user()->genero == "W") { $ngen = rand(4,6);}
+                    if (Auth::user()->genero == "M") { $ngen = rand(4,6);}
                     $avatarimg = 'img/avatars/avatar_'.$ngen.'.png';
                     }
                     else {
