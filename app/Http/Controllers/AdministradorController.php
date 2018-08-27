@@ -54,6 +54,16 @@ class AdministradorController extends Controller
       return view('admin.competidores')->with(compact('competidores'));
     }
 
+    public function compperfil($id)
+    {
+      if (Auth::user()->avatar == "" )
+      {
+        Auth::user()->avatar = 'adminlte/dist/img/avatar5.png';
+      }
+      $competidor = suscriptores::find($id);
+      return view('admin.compprofile')->with(compact('competidor'));
+    }
+
     public function compvideos($id)
     {
       if (Auth::user()->avatar == "" )
@@ -112,17 +122,59 @@ class AdministradorController extends Controller
       //$crossfit = suscriptores::where('premium','1')->wherein('tcompetencia_id',['1','2','3'])->get();
       $crossfit = suscriptores::
                               join('compvideos','suscriptores.id','=','compvideos.suscriptor_id')
-                              //->select('suscriptores.*','compvideos.*')
+                              ->select('suscriptores.*','compvideos.*')
                               ->where('suscriptores.premium',1)
                               ->wherein('suscriptores.tcompetencia_id',['1','2','3'])
                               ->whereNotNull('compvideos.tiempo')
                               ->orwhereNotNull('compvideos.repeticiones')
                               ->orwhereNotNull('compvideos.peso')
-                              ->toSql();
-      dd($crossfit);
-
+                              ->get();
+                              //->toSql();
       //dd($crossfit);
       return view('admin.calificaciones')->with(compact('crossfit'));
+    }
+    public function califCrossfit()
+    {
+      if (Auth::user()->avatar == "" )
+      {
+        Auth::user()->avatar = 'adminlte/dist/img/avatar5.png';
+      }
+      $crossBeginner = suscriptores ::
+                        join('compvideos','suscriptores.id','=','compvideos.suscriptor_id')
+                        ->select('suscriptores.*','compvideos.*')
+                        ->where('suscriptores.premium',1)
+                        ->where(function ($query) {
+                          $query->orwhereNotNull('compvideos.tiempo')
+                                ->orwhereNotNull('compvideos.repeticiones')
+                                ->orwhereNotNull('compvideos.peso');
+                        })
+                        ->where('suscriptores.tcompetencia_id',1)
+                        ->get();
+                        //->toSql();
+                        //dd($crossBeginner);
+      $crossInter = suscriptores ::
+                      join('compvideos','suscriptores.id','=','compvideos.suscriptor_id')
+                      ->select('suscriptores.*','compvideos.*')
+                      ->where('suscriptores.premium',1)
+                      ->where(function ($query) {
+                        $query->orwhereNotNull('compvideos.tiempo')
+                              ->orwhereNotNull('compvideos.repeticiones')
+                              ->orwhereNotNull('compvideos.peso');
+                      })
+                        ->where('suscriptores.tcompetencia_id',2)
+                        ->get();
+      $crossRX = suscriptores ::
+                        join('compvideos','suscriptores.id','=','compvideos.suscriptor_id')
+                        ->select('suscriptores.*','compvideos.*')
+                        ->where('suscriptores.premium',1)
+                        ->where(function ($query) {
+                          $query->orwhereNotNull('compvideos.tiempo')
+                                ->orwhereNotNull('compvideos.repeticiones')
+                                ->orwhereNotNull('compvideos.peso');
+                        })
+                        ->where('suscriptores.tcompetencia_id',3)
+                        ->get();
+      return view('admin.califCross')->with(compact('crossBeginner','crossInter','crossRX'));
     }
 
 }

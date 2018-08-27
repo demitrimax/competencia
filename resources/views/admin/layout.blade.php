@@ -251,7 +251,21 @@ desired effect
         <li class="header">MENU PRINCIPAL</li>
         <!-- Optionally, you can add icons to the links -->
         <li class="@yield('link-dash')"><a href="{{url('admin/')}}"><i class="fa  fa-bar-chart-o"></i> <span>Dashboard</span></a></li>
-        <li class="@yield('link-calif')"><a href="{{url('admin/competidores/calificaciones')}}"><i class="fa fa-thumbs-o-up"></i> <span>Calificaciones</span></a></li>
+        <li class="treeview @yield('link-calif')">
+          <a href="#"><i class="fa fa-thumbs-o-up"></i> <span>Calificaciones</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class="@yield('link-calif-cross')"><a href="{{url('admin/calif/cross')}}"><i class="fa fa-circle-o"></i>CrossFit</a></li>
+            <li class="@yield('link-calif-gym')"><a href="{{url('admin/calif/gym')}}"><i class="fa fa-circle-o"></i>Gymnastic</a></li>
+            <li class="@yield('link-calif-weight')"><a href="{{url('admin/calif/weight')}}"><i class="fa fa-circle-o"></i>WeightLifthing</a></li>
+            <li class="@yield('link-calif-cond')"><a href="{{url('admin/calif/cond')}}"><i class="fa fa-circle-o"></i>Condition</a></li>
+            <li class="@yield('link-calif-peso')"><a href="{{url('admin/calif/peso')}}"><i class="fa fa-circle-o"></i>Perder Peso</a></li>
+          </ul>
+        </li>
+        <li class="@yield('link-post')"><a href="#"><i class="fa fa-file-text"></i> <span>Post</span></a></li>
         <li class="@yield('link-carrusel')"><a href="#"><i class="fa fa-suitcase"></i> <span>Carrusels</span></a></li>
         <li class="treeview @yield('link-competidores')">
           <a href="#"><i class="fa fa-group"></i> <span>Competidores</span>

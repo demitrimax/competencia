@@ -35,7 +35,11 @@
             <td>{{$competidor->genero}}</td>
             <td> {{$competidor->tcompetencia->competencia." | ".$competidor->tcompetencia->nivel }}</td>
             <td> {{$competidor->compvideos->count()}}</td>
-            <td>Detalles | <a href="{{url('admin/competidor/'.$competidor->id.'/videos')}}"> Videos</a> | Descalificar </td>
+            <td><a href="{{url('admin/competidor/'.$competidor->id.'/perfil')}}">Detalles</a>
+              @if ($competidor->compvideos->count() > 0)
+              | <a href="{{url('admin/competidor/'.$competidor->id.'/videos')}}"> Videos</a>
+              @endif
+              | Mensajes </td>
           </tr>
           @endforeach
           </tbody>
