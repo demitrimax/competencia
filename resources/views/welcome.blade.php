@@ -227,7 +227,7 @@
             $nombre = basename($imagen->imagen);
             $thumbail = $path.$nombre;
             ?>
-            <div class="item"><a href="{{'storage/'.$imagen->imagen}}" title="{{$imagen->descripcion}}" data-lightbox-gallery="gallery1" data-lightbox-hidpi="{{'storage/'.$imagen->imagen}}"><img src="{{ $thumbail }}" class="img-responsive" alt="img"></a></div>
+            <div class="item"><a href="{{$imagen->imagen}}" title="{{$imagen->descripcion}}" data-lightbox-gallery="gallery1" data-lightbox-hidpi="{{'storage/'.$imagen->imagen}}"><img src="{{ $thumbail }}" class="img-responsive" alt="img"></a></div>
             @endforeach
           </div>
         </div>
